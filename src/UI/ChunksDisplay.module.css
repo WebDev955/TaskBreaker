@@ -1,0 +1,15 @@
+.mainChunkDisplayWrapper{
+    width: 100%;
+    margin-top: 5px ;
+    border-top: 1px solid black;
+    background-color: lightgray
+}
+
+.chunksList li{
+    padding-bottom: 10px;
+
+}
+
+.chunkText {
+    padding-left: 8px;
+}

@@ -1,0 +1,48 @@
+.mainTaskDisplayWrapper {
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid black;
+    border-top-left-radius: 25px ;
+    border-top-right-radius: 25px ;
+    width: 100%;
+    background-color: burlywood; 
+}
+
+.mainTaskDisplayWrapper ul {
+    list-style: none;
+}
+
+.taskList {
+  list-style: none;
+  padding-left: 1px;
+  text-align: left;
+}
+
+.taskList li {
+  list-style: none;
+  padding-left: 10px;
+  text-align: left;
+  padding: 5px;
+}
+
+.task {
+  padding-top: 15px;
+  border-top: solid black 2px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.taskText {
+  margin-left: 8px;
+
+}
+.downArrow {
+    margin-left: auto;  
+    margin-right: 25px;
+}
+
+.downArrow:hover{
+  transform: scale(1.5);
+  transform: scaleY(-1);
+}
