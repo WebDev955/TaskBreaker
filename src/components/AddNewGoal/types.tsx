@@ -1,7 +1,15 @@
+export type genNotes = {
+  noteId: string;
+  noteName: string;
+  noteText: string;
+}
+
 export type Goal = {
   goalId: string;
-  goalName: string,
-  goalTimeFrame: string, 
+  goalName: string;
+  goalTimeFrame: string;
+  goalNote: string;
+  goalStatus: string;
   tasks: Task[]
 }
 
@@ -9,6 +17,7 @@ export type Task = {
   taskId: string;
   taskName: string;
   taskTimeFrame: string;
+  isTaskComplete: boolean;
   chunks: Chunk[];
 };
 

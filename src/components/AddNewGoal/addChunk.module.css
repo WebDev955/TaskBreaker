@@ -1,5 +1,6 @@
 .chunkWrapperDiv{
-    border: solid whitesmoke 1px;
     background-color: lightsalmon;
     color: white;
+    padding: 5px;
+    border-top: black 3px solid;
 }

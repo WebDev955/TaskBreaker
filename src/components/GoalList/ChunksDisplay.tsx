@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styles from "./ChunksDisplay.module.css"
-import type { Chunk } from "../components/NewAddGoals/types";
+import type { Chunk } from "../components/AddNewGoal/types";
+
+import CheckBoxChecked from "../../../public/CheckBoxChecked.png"
+import CheckBoxEmpty from "../../../public/CheckBoxEmpty.png"
 
 type ChunksDisplayProps = {
   chunks: Chunk[]
@@ -29,8 +32,6 @@ const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskName}) => {
       }); 
     };
 
-
-  console.log(chunks)
     return (
       <div className={styles.mainChunkDisplayWrapper}>
         <ul className={styles.chunksList}>
@@ -41,8 +42,8 @@ const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskName}) => {
                   width="20px" 
                   src = { 
                      isChecked.has(chunk.chunkId)
-                      ? "/CheckBoxChecked.png"
-                      : "/CheckBoxEmpty.png"
+                      ? CheckBoxChecked
+                      : CheckBoxEmpty
                   }
                   onClick = {(e) => {
                     e.stopPropagation(); 

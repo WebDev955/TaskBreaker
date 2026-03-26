@@ -1,13 +1,19 @@
-import NewAddGoal from "./NewAddGoal";
-import NewAddTask from "./NewAddTask";
+import { useGoals } from "../contexts/GoalContext";
+import NewAddGoal from "./AddGoal";
+import NewAddTask from "./AddTask";
+import GoalFormUI from "../../UI/GoalFormUI" 
+import style from "./GoalForm.module.css"
 
-import type { Task} from "./types";
+import type { Goal, Task} from "./types";
 import { useState } from "react"
+ 
+type AddNewGoalProps = {
+    closeModal: () => void,
+}
 
-//TypeScript Definitions
-//type updateTaskName = (event: string) => void
-
-const NewGoalForm: React.FC = () => {
+const GoalForm: React.FC<AddNewGoalProps> = ({closeModal}) => {
+    
+    const {addGoal} = useGoals()
 
     /**************************************************/ 
     /*Default Goal and Task States                ****/
@@ -15,7 +21,9 @@ const NewGoalForm: React.FC = () => {
     const [goal, setGoal] = useState({
         goalId: crypto.randomUUID(),
         goalName: "",
+        goalNote: "",
         goalTimeFrame: "",
+        goalStatus: "Active",
         tasks: []
     })
 
@@ -23,12 +31,14 @@ const NewGoalForm: React.FC = () => {
         taskId: crypto.randomUUID(),
         taskName:"",
         taskTimeFrame:"",
+        isTaskComplete: false,
         chunks: [{
             chunkId:crypto.randomUUID(),
             chunkName:"",
             chunkTimeFrame:""
         }]
     }])
+
 console.log(tasks)
     /**************************************************/ 
     /*UPDATING FUNCTIONS (add new Task and Chunk)****/
@@ -41,7 +51,8 @@ console.log(tasks)
             {   
                 taskId: crypto.randomUUID(),
                 taskName:"",
-                taskTimeFrame:"",    
+                taskTimeFrame:"",
+                isTaskComplete: false,    
                     chunks: [{
                         chunkId:crypto.randomUUID(),
                         chunkName:"",
@@ -92,7 +103,6 @@ console.log(tasks)
         
 }
 
-
     //Update Task properties
     const updateTaskName = (taskId: string, value: string):void => {
         setTasks((prev)=>
@@ -122,15 +132,14 @@ console.log(tasks)
                         ...task, 
                         chunks: task.chunks.map((chunk) =>
                             chunk.chunkId === chunkId
-                            ? {...chunk, chunkName: value}
-                            : chunk
+                                ? {...chunk, chunkName: value}
+                                : chunk
                         ),
                     }
-
-                     : task
+                    : task
+                )
             )
-        )
-    };
+        };
 
     const updateChunkTime = (taskId: string, chunkId: string, value: string):void => {
         setTasks ((prev) => 
@@ -157,31 +166,30 @@ console.log(tasks)
         event.preventDefault();
 
         const formData = new FormData (event.target)
-        const goalName = formData.get("goalName")
-        const goalTimeFrame = formData.get("goalTimeFrame")
+        const goalName = String(formData.get("goalName") ?? "")
+        const goalTimeFrame = String(formData.get("goalTimeFrame") ?? "")
         const goalId = goal.goalId
+        const goalNote = goal.goalNote
+        const goalStatus = goal.goalStatus
 
         const taskList = tasks
 
         const newGoal = {
             goalId,
-            goalName,
+            goalName,    
+            goalNote,
             goalTimeFrame,
+            goalStatus,
             tasks: taskList
         }
         
-        const currentGoalList = localStorage.getItem("Goals")
-        const existingGoals = currentGoalList
-            ? JSON.parse(currentGoalList)
-            : []
+        addGoal(newGoal as Goal)
 
-        const updatedGoals = [...existingGoals, newGoal]
-
-        localStorage.setItem("Goals", JSON.stringify(updatedGoals));
         alert("Goal Added!")
-
+        closeModal()
         console.log("Saved goal:", newGoal);
     }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -191,7 +199,6 @@ console.log(tasks)
                     updateGoalName = {updateGoalName}
                     updateGoalTime = {updateGoalTime}
                 />
-                
                 {/*display and update list of addTask Components, push needed Props*/}
                 <div>
                     {tasks.map((task)=> (
@@ -207,6 +214,7 @@ console.log(tasks)
                     ))}
                 </div>
                 <h2 onClick={() => addNewTask()}> + Task</h2>  
+                <p>Privde a single task to meet your goal and how long it might take to finish.</p>
                 <div>
                     <hr/>
                     <button type="submit">Save Goal!</button>
@@ -216,5 +224,5 @@ console.log(tasks)
     )
 }
 
-export default NewGoalForm
+export default GoalForm
 

@@ -1,6 +1,6 @@
 //import styles from "./addChunk.module.css"
 import type {Chunk} from "./types"
-import styles from "./addChunk.module.css"
+import styles from "../AddNewGoal/addChunk.module.css"
 
 type chunkProps = {
      chunk: Chunk,
@@ -9,7 +9,7 @@ type chunkProps = {
      updateChunkTime: (taskId: string, chunkId: string, value: string) => void
 }   
 
-const NewAddChunk:React.FC<chunkProps> = ({
+const AddAdditionalChunk:React.FC<chunkProps> = ({
     chunk, 
     taskId,
     updateChunkName, 
@@ -42,4 +42,4 @@ const NewAddChunk:React.FC<chunkProps> = ({
         </div>
     )
 }
-export default NewAddChunk
+export default AddAdditionalChunk

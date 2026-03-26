@@ -1,26 +1,35 @@
+//Imports - hooks/Types
 import { useState } from "react";
+import type { Task } from "../AddNewGoal/types"
+import { useGoals } from "../contexts/GoalContext";
+//Imports - Components
 import ChunksDisplay from "./ChunksDisplay";
-import AddAdditionalTask from "../components/AddAdditionalTask";
-
+import AddAdditionalTask from "./AddAdditionalTask";
+//Imports - styles, images
 import styles from "./TasksDisplay.module.css"
-import type { Task } from "../components/NewAddGoals/types";
+import CheckBoxChecked from "../../../public/CheckBoxChecked.png"
+import CheckBoxEmpty from "../../../public/CheckBoxEmpty.png"
+import DownArrow from "../../../public/DownArrow.png"
 
 
 type TasksDisplayProps = {
   tasks: Task[];
+  goalId: string;
 }; 
 
-const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks}) => {
+const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
     
+    const {checkTask} = useGoals()
+  
     const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
-    const [isChecked, setIsChecked] = useState<Set<string>>(
-      () => new Set
-    )
-
-    const [newTask, setNewTask] = useState<boolean>(false)
-
+    const [openNewTask, setOpenNewTask] = useState<boolean>(false)
+    
+    const checkBoxHandler = (goalId: string, taskId:string) =>{
+      checkTask(goalId, taskId)
+    };
+    
     const newTaskHandler = () =>{
-      setNewTask(true)
+      setOpenNewTask(true)
     }
 
     const displayChunks = (taskId: string) => {
@@ -31,45 +40,45 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks}) => {
         );
     }
 
-    const checkBoxHandler = (taskId:string) =>{
-      setIsChecked(prev => {
-        const next = new Set(prev)
 
-        if (next.has(taskId)) {
-          next.delete(taskId);
-        } else {
-          next.add(taskId)
-        }
-        return next;
-      }); 
-    };
     
-      console.log(tasks)
+    /**************************************************/ 
+    /*Submit New Task                             ****/
+    /************************************************/
+    //const addNewTaskHandler = () =>{
+      //function to update 
+    //}
+
+
+
+
     return (
       <div className={styles.mainTaskDisplayWrapper}>
         <h3>Tasks to Complete:</h3>
+        <p>Tasks Completed: {tasks.filter(task => task.isTaskComplete).length}/{tasks.length}</p>
         <ul className= {styles.taskList}>
           <button onClick={() => newTaskHandler()}>+ Additional Task</button>
-          {newTask &&
-            <AddAdditionalTask/>
-          }
+          {openNewTask && (
+            <AddAdditionalTask
+              goalId = {goalId}
+            />
+          )}
           {tasks.map(task => (
             <li 
               key={task.taskId} 
               onClick = {() => displayChunks(task.taskId)}
             > 
             <div className={styles.task}>
-                
                 <img  
                   width="20px" 
                   src = { 
-                     isChecked.has(task.taskId)
-                      ? "/CheckBoxChecked.png"
-                      : "/CheckBoxEmpty.png"
+                      task.isTaskComplete
+                     ? CheckBoxChecked
+                     : CheckBoxEmpty
                   }
                   onClick = {(e) => {
                     e.stopPropagation(); 
-                    checkBoxHandler(task.taskId);
+                    checkBoxHandler(goalId, task.taskId);
                   }}
                 />
                 <span className={styles.taskText}>{
@@ -78,7 +87,7 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks}) => {
                   <img
                     className= {styles.downArrow}
                     width="20"
-                    src = "/DownArrow.png"
+                    src = {DownArrow}
                   /> 
                 </div>
               <div>

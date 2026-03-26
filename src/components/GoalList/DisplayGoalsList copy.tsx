@@ -13,7 +13,7 @@ const DisplayGoalsList:React.FC = () => {
         }
     },[])
 
-    console.log(goals)
+
     
     return (
     <div className={styles.displayGoalsMainWrapper}>

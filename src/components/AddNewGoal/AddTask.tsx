@@ -1,5 +1,5 @@
 //IMPORT - COMPONENTS/TYPES
-import NewAddChunk from "./NewAddChunk"
+import AddChunk from "./AddChunk"
 import type {Task} from "./types"
 
 //IMPORT - STYLES
@@ -17,7 +17,7 @@ type taskProps = {
      updateChunkTime: (taskId: string, chunkId: string, value: string) => void
 }
 
-const NewAddTask: React.FC<taskProps> = ({
+const AddTask: React.FC<taskProps> = ({
     task, 
     addChunk,
     updateTaskTime, 
@@ -32,7 +32,7 @@ const NewAddTask: React.FC<taskProps> = ({
         <div className={styles.taskWrapperDiv} key = {task.taskId}>
             <br/>
             <h2>Task</h2> 
-        
+            <p>Privde a single task to meet your goal and how long it might take to finish. </p>
             <label htmlFor="TaskName">Task:</label>
                 <input
                     id = {task.taskId}
@@ -50,11 +50,11 @@ const NewAddTask: React.FC<taskProps> = ({
                     value = {task.taskTimeFrame}
                     onChange={(e) => updateTaskTime(task.taskId, e.target.value)}
                 /> 
-                 <h2 onClick={() => addChunk(task.taskId)}> + Chunk</h2>        
+                    
         </div>
         <div>
             {task.chunks.map((chunk) => (
-                <NewAddChunk
+                <AddChunk
                     key = {chunk.chunkId}
                     taskId= {task.taskId}
                     chunk = {chunk}
@@ -62,10 +62,13 @@ const NewAddTask: React.FC<taskProps> = ({
                     updateChunkTime = {updateChunkTime}
                 />
             ))}
+            <h2 onClick={() => addChunk(task.taskId)}> + Chunk</h2> 
+                <p>Sometimes a task consists of subtasks. Break them down into chunks to better see and organize completing your overal goal.</p>
+            <hr/>    
             <br/>
         </div>
       </>
     )
 }
 
-export default NewAddTask
+export default AddTask

@@ -1,0 +1,36 @@
+.navbar{
+    position: fixed; 
+    bottom:0;
+    left:0;
+    width: 100vw;
+    margin-top: auto;
+    background-color: antiquewhite;
+    color: black;
+
+}
+
+.navbar ul {    
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.navbar li{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 10px;
+    background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+.navbar li:hover {
+    cursor: pointer;
+    background-color: rgb(253, 176, 176);
+}
+

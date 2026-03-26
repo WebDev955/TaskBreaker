@@ -1,4 +1,5 @@
 import type { Goal } from "./types"
+import style from "./AddGoal.module.css"
 
 type goalProps = {
     goal: Goal
@@ -13,7 +14,9 @@ const NewAddGoal:React.FC<goalProps> = ({
 }) => {
 
     return (
-        <div key = {goal.goalId}>
+        <div key = {goal.goalId} className= {style.mainDiv}>
+            <h2>Add Goal</h2>
+            <p>Provide a goal name and general time frame you wish to complete it.</p>
             <label htmlFor="goalName">Goal:</label>
                 <input
                     name="goalName"
