@@ -1,10 +1,12 @@
 //import styles from "./addChunk.module.css"
-import type {Chunk} from "./types"
+import type {Chunk} from "../AddNewGoal/types"
 import styles from "../AddNewGoal/addChunk.module.css"
+//import { useGoals } from "../contexts/GoalContext"
 
 type chunkProps = {
      chunk: Chunk,
      taskId: string,
+     goalId: string,
      updateChunkName: (taskId: string, chunkId: string, value: string) => void,
      updateChunkTime: (taskId: string, chunkId: string, value: string) => void
 }   
@@ -12,10 +14,12 @@ type chunkProps = {
 const AddAdditionalChunk:React.FC<chunkProps> = ({
     chunk, 
     taskId,
+    goalId,
     updateChunkName, 
     updateChunkTime
 
 }) => {
+
 
     console.log(chunk)
 
@@ -38,7 +42,7 @@ const AddAdditionalChunk:React.FC<chunkProps> = ({
                     type = "text"
                     value = {chunk.chunkTimeFrame}
                     onChange={(e) => updateChunkTime(taskId, chunk.chunkId, e.target.value)}
-                />       
+                /> 
         </div>
     )
 }

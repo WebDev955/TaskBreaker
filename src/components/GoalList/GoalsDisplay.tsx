@@ -49,7 +49,7 @@ const GoalsDisplay:React.FC = () => {
         
         {goals.map((goal) => {
           if (goal.goalStatus !== "Active") return null;
-
+          
           const totalTasks = goal.tasks.length;
           const completedTasks = goal.tasks.filter(task => task.isTaskComplete).length;
 

@@ -18,13 +18,12 @@ type AddNewTaskProps = {
 
 const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
     const {addNewTask} = useGoals()
-    const [openNewChunk, setOpenNewChunk] = useState<boolean>(false)
+    //const [openNewChunk, setOpenNewChunk] = useState<boolean>(false)
 
-    const openNewChunkHandler = () => {
-        setOpenNewChunk(true)
-    }
+    //const openNewChunkHandler = () => {
+        //setOpenNewChunk(true)
+    //}
     
-
     const [draftTask, setDraftTask] = useState({
         taskId: crypto.randomUUID(),
         taskName:"",
@@ -56,7 +55,6 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
                 chunkName: "",
                 chunkTimeFrame: ""
             }
-
             setDraftTask(prev => ({
                 ...prev,
                 chunks: [...prev.chunks, newChunk]
@@ -124,6 +122,7 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
                         <AddAdditionalChunk
                             key={chunk.chunkId}
                             chunk={chunk}
+                            goalId = {goalId}
                             taskId={draftTask.taskId}
                             updateChunkName={updateChunkName}
                             updateChunkTime={updateChunkTime}

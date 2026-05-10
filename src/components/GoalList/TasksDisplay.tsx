@@ -92,7 +92,12 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
                 </div>
               <div>
                 {selectedTaskId === task.taskId && (
-                  <ChunksDisplay chunks = {task.chunks} taskName = {task.taskName}/>
+                  <ChunksDisplay 
+                    chunks = {task.chunks} 
+                    taskId = {task.taskId}
+                    goalId = {goalId}
+                    taskName = {task.taskName}
+                  />
                 )}
               </div>
             </li>

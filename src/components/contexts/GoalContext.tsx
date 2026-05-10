@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState, useContext, use } from "react";
+import { createContext, useEffect, useState, useContext} from "react";
 
-import type { Goal, Task, genNotes, tasksComplete } from "../AddNewGoal/types";
+import type { Goal, Task, Chunk, genNotes} from "../AddNewGoal/types";
 
 type GoalsContextType = {
     goals: Goal [];
@@ -10,8 +10,11 @@ type GoalsContextType = {
 
     addGoal: (goal: Goal) => void;
     deleteGoal: (goalId: string) => void;
-    addNewTask: (goalId: string, task: Task) => void;
+
+    addNewTask:(goalId: string, task: Task) => void;
     checkTask: (goalId: string, taskId: string) => void;
+
+    addNewChunk: (goalId: string, taskId: string, newChunk: Chunk) => void,
     
     addGenNote: (noteDraft: string, noteTitle: string) => void;
     deleteGenNote: (noteId: string) => void
@@ -157,9 +160,29 @@ export const GoalsProvider:React.FC<{children: React.ReactNode}> = ({children}) 
       )
     }
 
-
+  //Update Task (with new Chunk)
+  const addNewChunk = (goalId: string, taskId: string, newChunk: Chunk) => {
+    setGoals (prevGoals => 
+      prevGoals.map(goal => goal.goalId === goalId
+        ? {
+            ...goal,
+            tasks: goal.tasks.map(task => task.taskId === taskId
+              ? {
+                  ...task,
+                  chunks: [...task.chunks, newChunk]
+              }
+              : task
+            )
+        }
+        : goal
+      )
+    )
+  }
     return (
-        <GoalsContext.Provider value ={{goals, deleteGoal, genNotes, addGoal, addNewTask, getGoalNote, updateGoalNote, addGenNote, deleteGenNote, archiveGoal, unArchive, checkTask}}>
+        <GoalsContext.Provider value ={{
+          goals, deleteGoal, genNotes, addGoal, addNewTask, addNewChunk,
+          getGoalNote, updateGoalNote, addGenNote, deleteGenNote, 
+          archiveGoal, unArchive, checkTask}}>
             {children}
         </GoalsContext.Provider>
     )

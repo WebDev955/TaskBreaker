@@ -1,20 +1,26 @@
 import { useState } from "react";
 import styles from "./ChunksDisplay.module.css"
-import type { Chunk } from "../components/AddNewGoal/types";
+import type { Chunk } from "../AddNewGoal/types"
+import AddSingleChunk from "./AddSingleChunk";
 
 import CheckBoxChecked from "../../../public/CheckBoxChecked.png"
 import CheckBoxEmpty from "../../../public/CheckBoxEmpty.png"
 
 type ChunksDisplayProps = {
   chunks: Chunk[]
+  taskId: string,
+  goalId: string,
   taskName: string;
 }
 
-const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskName}) => {
+const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskId, goalId}) => {
+  const [openNewChunk, setOpenNewChunk] = useState(false)
+  console.log("ChunksDisplay rendering, openNewChunk:", openNewChunk)
+  console.log("taskId:", taskId, "goalId:", goalId)
   const [isChecked, setIsChecked] = useState<Set<string>>(
       () => new Set
     )
-  
+
   if (!chunks || chunks.length === 0) {
     return <p>No chunks available</p>;
   }
@@ -32,10 +38,22 @@ const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskName}) => {
       }); 
     };
 
+  
     return (
       <div className={styles.mainChunkDisplayWrapper}>
         <ul className={styles.chunksList}>
-          <button>+ Chunk</button>
+          <button onClick={(e) => {
+            e.stopPropagation()
+            setOpenNewChunk(true)
+          }}>
+            + Chunk
+          </button>
+          {openNewChunk && (
+            <AddSingleChunk
+              taskId={taskId}
+              goalId={goalId}
+            />
+          )}
           {chunks.map((chunk)=> (
             <li key = {chunk.chunkId}>
                <img  
