@@ -14,7 +14,6 @@ type chunkProps = {
 const AddAdditionalChunk:React.FC<chunkProps> = ({
     chunk, 
     taskId,
-    goalId,
     updateChunkName, 
     updateChunkTime
 

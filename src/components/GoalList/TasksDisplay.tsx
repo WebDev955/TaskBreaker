@@ -39,19 +39,6 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
             : taskId
         );
     }
-
-
-    
-    /**************************************************/ 
-    /*Submit New Task                             ****/
-    /************************************************/
-    //const addNewTaskHandler = () =>{
-      //function to update 
-    //}
-
-
-
-
     return (
       <div className={styles.mainTaskDisplayWrapper}>
         <h3>Tasks to Complete:</h3>

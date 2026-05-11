@@ -15,8 +15,7 @@ type ChunksDisplayProps = {
 
 const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskId, goalId}) => {
   const [openNewChunk, setOpenNewChunk] = useState(false)
-  console.log("ChunksDisplay rendering, openNewChunk:", openNewChunk)
-  console.log("taskId:", taskId, "goalId:", goalId)
+
   const [isChecked, setIsChecked] = useState<Set<string>>(
       () => new Set
     )
@@ -42,12 +41,10 @@ const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskId, goalId}) =>
     return (
       <div className={styles.mainChunkDisplayWrapper}>
         <ul className={styles.chunksList}>
-          <button onClick={(e) => {
-            e.stopPropagation()
+          <button onClick={(e) => { 
+            e.stopPropagation() 
             setOpenNewChunk(true)
-          }}>
-            + Chunk
-          </button>
+          }}> + Chunk </button>
           {openNewChunk && (
             <AddSingleChunk
               taskId={taskId}

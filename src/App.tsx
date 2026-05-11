@@ -27,7 +27,6 @@ function App() {
         {renderContent === "displayGoals" &&
          <p>Learn something new, break down one large goal into tasks and chunks and see the progress.</p>
         }
-
           {renderContent === "displayGoals" && <GoalsDisplay/>}
           {renderContent === "displayNotes" && <Notes/>}
           {renderContent === "displayArchive" && <ArchivedGoals/>}

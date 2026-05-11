@@ -9,12 +9,11 @@ import { useGoals } from "../contexts/GoalContext";
 
 
 const GoalsDisplay:React.FC = () => {
-
-    const {goals, archiveGoal} = useGoals()
+    const {goals, archiveGoal, getGoalNote} = useGoals()
 
     const [selectedGoalId, setSelectedGoalId] = useState<string | null>(null)
     const [showAddGoalForm, setAddGoalForm] = useState(false)
-    
+    const [openGoalNotes, setOpenGoalNotes] = useState("")
     
     const displayAddGoal = ():void => {
       setAddGoalForm(true)
@@ -29,58 +28,65 @@ const GoalsDisplay:React.FC = () => {
       alert("Goal archived!")
     }
 
+    const editNoteHandler = (goalId: string) => {
+      setOpenGoalNotes(goalId)
+    }
     return (
       <div className={styles.mainWrapper}>
-        <hr/>
           <div className={styles.addGoalWrapper}>
-            <h2 onClick ={displayAddGoal}>Add A Goal!</h2> 
               <GoalModal/>
-              
-              {showAddGoalForm &&
+              {showAddGoalForm && 
                 <GoalForm/> 
-              }
+              } 
+          <div className={styles.sortmenu}>
+            <h3>Sort Goals:</h3>
+            <p>Name</p>
+            <p>Length</p>
+          </div>
         </div>
-        <hr/>
-        <div className={styles.sortmenu}>
-          <h3>Sort Goals:</h3>
-          <p>Name</p>
-          <p>Length</p>
-        </div>
-        
         {goals.map((goal) => {
           if (goal.goalStatus !== "Active") return null;
-          
           const totalTasks = goal.tasks.length;
           const completedTasks = goal.tasks.filter(task => task.isTaskComplete).length;
-
           const progressPercentage = totalTasks === 0
               ? 0
               : (completedTasks / totalTasks) * 100;
-
+{/*GOAL DISPLAY*/}
           return (
-           <div key={goal.goalId} className={styles.goalWrapper}>
-              <h2 onClick={() => displayTasks(goal.goalId)}>
-                Goal: {goal.goalName} - {goal.goalTimeFrame}
-              </h2>
+            <div key={goal.goalId} className={styles.goalWrapper}>
+              <div className={styles.goalHeader}>
+                <h2 onClick={() => displayTasks(goal.goalId)}>
+                  Goal: {goal.goalName} - {goal.goalTimeFrame}
+                </h2> 
+              </div>
+{/*GOAL COMPLETE STATUS DIV*/}
               <div className = {styles.progressBar}> 
                 <div
                   className= {styles.progressFill}
                   style = {{width: `${progressPercentage}%`}}
                 />
               </div>
-
-              <p>Tasks Completed: {goal.tasks.filter(task => task.isTaskComplete).length}/{goal.tasks.length}</p>
-              <div>
-                <GoalNote goalId = {goal.goalId} />
+{/*GOAL OPTIONS MENU DIV*/}
+              {getGoalNote(goal.goalId)}
+                {openGoalNotes === goal.goalId &&
+                  <GoalNote
+                    goalId= {goal.goalId}
+                    openGoalNotes = {openGoalNotes}
+                    closeEditNote = {editNoteHandler}
+                  />
+                }
+              <div className = {styles.goalOptionsMenu}>              
+                <button onClick = {() => editNoteHandler(goal.goalId)}>Edit Note</button> 
+                <button  onClick = {() => goalStatus(goal.goalId, "Archive")}>Archive Goal</button >
               </div>
-                <p onClick = {() => goalStatus(goal.goalId, "Archive")}>Archive Goal</p>
-                {selectedGoalId === goal.goalId && (
+              {selectedGoalId === goal.goalId && (
                   <TasksDisplay
                     goalId = {goal.goalId}
                     tasks = {goal.tasks}
                   />
                 )}
             </div> 
+            
           );
       })}
       </div>

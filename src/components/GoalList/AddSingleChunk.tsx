@@ -1,5 +1,4 @@
 
-import type {Chunk} from "../AddNewGoal/types"
 import styles from "../AddNewGoal/addChunk.module.css"
 import { useState } from "react"
 import { useGoals } from "../contexts/GoalContext"

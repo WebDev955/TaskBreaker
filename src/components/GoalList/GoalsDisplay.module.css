@@ -1,49 +1,82 @@
 .mainWrapper{
-    background-color: lightcoral;
+    background-color: transparent;
     margin-bottom: 80px;
-
+    display: flex;
+    justify-content: center;  
+    flex-direction: column; 
 }
-
 .addGoalWrapper {
-    background-color: bisque;
+    background-color: transparent;
     color: black;
     padding: 10px;
 }
 .sortmenu {
-    background-color: lightblue;
-    color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    font-weight: 800;
-}
-
-.goalWrapper{
-
+    margin-top: 10px;
     color: black;
+    background-color: var(--alabaster-grey);
+    font-weight: 800;
+    border-radius: 10px;
+    border: 2px solid black
+}
+.goalWrapper{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100%;
+    color: black;
+    background-color: var(--alabaster-grey);
     border-top: 3px solid black;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-bottom: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0px 14px 0px 1px #00000033;
 }
 .goalWrapper h2{
     text-align: left;
     padding-left: 10px;
 }
-
-.progressBar {
-  width: 100%;
-  height: 10px;
-  background-color: #e5e5e5;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px 0;
+.goalHeader {
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+    width: 100%;
 }
 
+.goalHeader h2 {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+.progressBar { 
+    width: 90%;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 3px solid black;  
+}
 .progressFill {
   height: 100%;
-  background-color: #4caf50;
+  background-color: var(--mint-leaf);
   transition: width 0.3s ease;
+}
+
+.goalOptionsMenu {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 10px;
+    background-color: rgba(175, 55, 0, 0.575);
+    border: 1px solid black;
+    padding: 10px;
 }
