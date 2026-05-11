@@ -67,7 +67,9 @@ const GoalsDisplay:React.FC = () => {
                 />
               </div>
 {/*GOAL OPTIONS MENU DIV*/}
-              {getGoalNote(goal.goalId)}
+              <div className={styles.goalNote}>
+                {getGoalNote(goal.goalId)}
+              </div>
                 {openGoalNotes === goal.goalId &&
                   <GoalNote
                     goalId= {goal.goalId}

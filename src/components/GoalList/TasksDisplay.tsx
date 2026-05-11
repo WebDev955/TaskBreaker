@@ -41,10 +41,12 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
     }
     return (
       <div className={styles.mainTaskDisplayWrapper}>
-        <h3>Tasks to Complete:</h3>
-        <p>Tasks Completed: {tasks.filter(task => task.isTaskComplete).length}/{tasks.length}</p>
-        <ul className= {styles.taskList}>
+        <div className={styles.taskHeader}>
+          <h3>Tasks to Complete:</h3>
+          <p>Tasks Completed: {tasks.filter(task => task.isTaskComplete).length}/{tasks.length}</p>
           <button onClick={() => newTaskHandler()}>+ Additional Task</button>
+        </div>
+        <ul className= {styles.taskList}>
           {openNewTask && (
             <AddAdditionalTask
               goalId = {goalId}

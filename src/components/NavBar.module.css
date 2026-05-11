@@ -4,9 +4,11 @@
     left:0;
     width: 100vw;
     margin-top: auto;
-    background-color: antiquewhite;
+    background-color: var(--alabaster-grey);
     color: black;
-
+    border: solid black 5px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 .navbar ul {    
@@ -23,14 +25,12 @@
     flex-direction: column;
     align-items: center; 
     padding: 10px;
-    background-color: lightblue;
+    background-color: #ff661f;
     border: 2px solid black;
     border-radius: 5px;
-
 }
 
 .navbar li:hover {
     cursor: pointer;
     background-color: rgb(253, 176, 176);
 }
-

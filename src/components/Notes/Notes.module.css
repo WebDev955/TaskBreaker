@@ -1,13 +1,19 @@
-.mainDiv{
-    background-color: tan;
+.mainNotesWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    width: 100%;
+    background-color: var(--alabaster-grey);
     color: black;
-    max-width: 430px;
+    border-top: solid black 10px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
 }
 
 .newNoteDiv {
    display: flex;
    flex-direction: column;
-   margin: 50px;
+   margin-top: 10px;
 
 }
 
