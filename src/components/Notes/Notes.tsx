@@ -14,11 +14,17 @@ const Notes: React.FC<noteProp> = () => {
     const [noteDraft, setNoteDraft] = useState<string>("")
     const [noteTitle, setNoteTitle] = useState<string>("")
     const [openNote, setOpenNote] = useState<boolean>(false)
+    const [displayNote, setDisplayNote] = useState<string>("")
     
     const openNoteHandler = () => {
-        setOpenNote(true)
+        setOpenNote(!openNote)
     }
     
+    const displayNoteHandler = (id: string) => {
+        setDisplayNote(id)
+        if (displayNote) {setDisplayNote("")}
+    }
+
     const saveNote = (noteDraft: string, noteTitle: string) => {
         addGenNote(noteTitle, noteDraft)
         setOpenNote(false)
@@ -31,29 +37,37 @@ const Notes: React.FC<noteProp> = () => {
     return(
     <>
         <div className = {style.mainNotesWrapper}>
-            <h1>NoteBook</h1>
-            <p>Write general notes.</p>
-            <p onClick={openNoteHandler}>Write Note</p>
+            <div className = {style.noteBookHeader}>
+                <h1>NoteBook</h1>
+                <p>Got an idea that popped into your head? <br/> Take note of it.</p>
+                <button onClick={openNoteHandler}>
+                    {openNote === true ? "Close" : "Write Note"}
+                </button>
                 {openNote === true && (
-                    <div className = {style.newNoteDiv}>
+                    <div className = {style.newNoteDiv}> 
+                        <button onClick={() => saveNote(noteDraft, noteTitle)}>Save Notes</button>
                         <input 
                             type="text" 
-                            defaultValue="title"
+                            defaultValue="Note Title"
                             onChange={(e) => setNoteTitle(e.target.value)}
                         />
                         <textarea  
                             onChange={(e) => setNoteDraft(e.target.value)}
                         />
-                        <p onClick={() => saveNote(noteDraft, noteTitle)}>Save Notes</p>
                     </div>
                 )}   
-            <div className = {style.noteListDiv}>
-                <h2>Note List</h2>
+            </div>
+                
+            <div className = {style.noteListWrapper}>
                     {genNotes.map((note) => (
-                        <div key={note.noteId} > 
-                            <h2>{note.noteName}</h2>
-                            <p className={style.note}>{note.noteText}</p>
-                            <p onClick = {() => delNoteHandler (note.noteId)}>Delete Note</p>
+                        <div key={note.noteId} className={style.noteDiv}> 
+                            <h2 onClick={() => displayNoteHandler(note.noteId)}>{note.noteName}</h2>
+                            {displayNote === note.noteId && (
+                                <>
+                                    <p className={style.note}>{note.noteText}</p>
+                                    <button onClick = {() => delNoteHandler (note.noteId)}>Delete Note</button>
+                                </>
+                            )}
                         </div>
                     )
                 )} 
@@ -62,5 +76,4 @@ const Notes: React.FC<noteProp> = () => {
     </>
     )
 }
-
 export default Notes
