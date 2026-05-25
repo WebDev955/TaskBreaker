@@ -1,6 +1,6 @@
 //import styles from "./addChunk.module.css"
 import type {Chunk} from "../AddNewGoal/types"
-import styles from "../AddNewGoal/addChunk.module.css"
+import styles from "../GoalList/AddAdditionalChunk.module.css"
 //import { useGoals } from "../contexts/GoalContext"
 
 type chunkProps = {

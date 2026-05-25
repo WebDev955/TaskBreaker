@@ -22,7 +22,7 @@ const NewAddChunk:React.FC<chunkProps> = ({
     return (
         <div className={styles.chunkWrapperDiv} key = {chunk.chunkId}>
             <h2>Chunk</h2>
-        
+            
             <label htmlFor="ChunkName">Chunk:</label>
                 <input
                     id = {chunk.chunkId}

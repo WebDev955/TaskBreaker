@@ -10,6 +10,7 @@ import styles from "./TasksDisplay.module.css"
 import CheckBoxChecked from "../../../public/CheckBoxChecked.png"
 import CheckBoxEmpty from "../../../public/CheckBoxEmpty.png"
 import DownArrow from "../../../public/DownArrow.png"
+import AddButton from "../../../public/AddButton.png"
 
 
 type TasksDisplayProps = {
@@ -30,6 +31,9 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
     
     const newTaskHandler = () =>{
       setOpenNewTask(true)
+      if (openNewTask === true){
+        setOpenNewTask(!openNewTask)
+      }
     }
 
     const displayChunks = (taskId: string) => {
@@ -44,14 +48,19 @@ const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
         <div className={styles.taskHeader}>
           <h3>Tasks to Complete:</h3>
           <p>Tasks Completed: {tasks.filter(task => task.isTaskComplete).length}/{tasks.length}</p>
-          <button onClick={() => newTaskHandler()}>+ Additional Task</button>
+          <button onClick={() => newTaskHandler()}>
+            <img src= {AddButton} width="30px"/>
+            Add New Task
+          </button>
         </div>
         <ul className= {styles.taskList}>
           {openNewTask && (
             <AddAdditionalTask
               goalId = {goalId}
+              newTaskHandler = {newTaskHandler}
             />
           )}
+                    
           {tasks.map(task => (
             <li 
               key={task.taskId} 

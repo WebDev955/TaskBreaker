@@ -9,6 +9,7 @@
     border-top: solid black 10px;
     border-top-left-radius: 20%;
     border-top-right-radius: 20%;
+    border-left: solid black 5px;
 }
 .noteBookHeader {
     display: flex;

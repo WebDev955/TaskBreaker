@@ -1,7 +1,27 @@
-.mainDiv {
+.addGoalWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
     background-color: grey;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 10px;
+    font-size: larger;
 }
 
+.addGoalWrapper > label {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.goalHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+
+.goalHeader > p {
+    margin-top: 0px;
+}

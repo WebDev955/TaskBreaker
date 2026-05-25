@@ -1,0 +1,23 @@
+.goalNoteWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.goalNoteWrapper > textarea {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    max-width: 350px;
+    height: 200px;
+}
+
+.goalNoteWrapper > button{
+    width: 100px;
+}
+

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useGoals } from "../contexts/GoalContext";
+import styles from "../GoalList/GoalNote.module.css"
 
 
 type GoalNoteProps ={
@@ -18,14 +19,12 @@ const GoalNote:React.FC<GoalNoteProps> = ({goalId, closeEditNote}) => {
         closeEditNote("")
   };
     return (
-        <div>
-            <>
-                <textarea
-                    value = {draft}
-                    onChange={(e) => setDraft(e.target.value)}
-                    />
-                <p onClick={saveNote}>Save Notes</p>
-            </>
+        <div className={styles.goalNoteWrapper}>
+            <textarea
+                value = {draft}
+                onChange={(e) => setDraft(e.target.value)}
+                />
+            <button onClick={saveNote}>Save Notes</button>
         </div>
     )
 }

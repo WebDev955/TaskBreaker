@@ -1,7 +1,15 @@
 .taskWrapperDiv{
-    
-    background-color: lightslategray;
-    color: white;
-    padding: 5px;
-    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    background-color:lightslategray;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+.taskWrapperDiv > label {
+    font-size: larger;
+    font-weight: 600;
 }

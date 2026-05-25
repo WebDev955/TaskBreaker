@@ -14,6 +14,7 @@ const GoalsDisplay:React.FC = () => {
     const [selectedGoalId, setSelectedGoalId] = useState<string | null>(null)
     const [showAddGoalForm, setAddGoalForm] = useState(false)
     const [openGoalNotes, setOpenGoalNotes] = useState("")
+    const [viewNotes, setViewNotes] = useState("")
     
     const displayAddGoal = ():void => {
       setAddGoalForm(true)
@@ -23,6 +24,11 @@ const GoalsDisplay:React.FC = () => {
       setSelectedGoalId((prev) => (prev === goalId ? null: goalId));
     }
 
+    const viewNoteHandler = (goalId:string) => {
+      setViewNotes(prev => prev === goalId ? "" : goalId)
+    }
+
+
     const goalStatus = (goalId: string, status: string) => {
       archiveGoal(goalId, status)
       alert("Goal archived!")
@@ -30,6 +36,8 @@ const GoalsDisplay:React.FC = () => {
 
     const editNoteHandler = (goalId: string) => {
       setOpenGoalNotes(goalId)
+      if (openGoalNotes){setOpenGoalNotes("")}
+      
     }
     return (
       <div className={styles.mainWrapper}>
@@ -55,7 +63,7 @@ const GoalsDisplay:React.FC = () => {
           return (
             <div key={goal.goalId} className={styles.goalWrapper}>
               <div className={styles.goalHeader}>
-                <h2 onClick={() => displayTasks(goal.goalId)}>
+                <h2>
                   Goal: {goal.goalName} - {goal.goalTimeFrame}
                 </h2> 
               </div>
@@ -67,9 +75,23 @@ const GoalsDisplay:React.FC = () => {
                 />
               </div>
 {/*GOAL OPTIONS MENU DIV*/}
-              <div className={styles.goalNote}>
-                {getGoalNote(goal.goalId)}
+              <div className = {styles.goalOptionsMenu}>    
+                <button onClick = {() => editNoteHandler(goal.goalId)}>
+                  {openGoalNotes ? "Close" : "Edit Note"}
+                </button>           
+                <button onClick = {() => viewNoteHandler(goal.goalId)}> 
+                  {viewNotes ? "Close Note" : "View Note"}
+                </button>
+                <button onClick = {() => displayTasks(goal.goalId)}> 
+                  {selectedGoalId === goal.goalId ? "Close Tasks" : "View Tasks" }
+                </button>
+                <button onClick = {() => goalStatus(goal.goalId, "Archive")}>Archive Goal</button>
               </div>
+                {viewNotes === goal.goalId && 
+                  <div className={styles.goalNote}>
+                    <p>{getGoalNote(goal.goalId)}</p>
+                  </div>
+                }
                 {openGoalNotes === goal.goalId &&
                   <GoalNote
                     goalId= {goal.goalId}
@@ -77,10 +99,6 @@ const GoalsDisplay:React.FC = () => {
                     closeEditNote = {editNoteHandler}
                   />
                 }
-              <div className = {styles.goalOptionsMenu}>              
-                <button onClick = {() => editNoteHandler(goal.goalId)}>Edit Note</button> 
-                <button  onClick = {() => goalStatus(goal.goalId, "Archive")}>Archive Goal</button >
-              </div>
               {selectedGoalId === goal.goalId && (
                   <TasksDisplay
                     goalId = {goal.goalId}
@@ -88,11 +106,10 @@ const GoalsDisplay:React.FC = () => {
                   />
                 )}
             </div> 
-            
           );
       })}
-      </div>
-    )
+    </div>
+  )
 };
   export default GoalsDisplay
   

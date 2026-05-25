@@ -5,7 +5,7 @@ import {useGoals} from "../contexts/GoalContext"
 import { useState } from "react"
 
 //IMPORT - STYLES
-import styles from "../AddNewGoal/addTask.module.css"
+import styles from "../GoalList/AddAdditionalTask.module.css"
 
 
 
@@ -14,9 +14,11 @@ import styles from "../AddNewGoal/addTask.module.css"
 /************************************************/
 type AddNewTaskProps = {
     goalId: string
+    newTaskHandler:() => {boolean:void}
+
 }
 
-const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
+const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId, newTaskHandler}) => {
     const {addNewTask} = useGoals()
     //const [openNewChunk, setOpenNewChunk] = useState<boolean>(false)
 
@@ -100,7 +102,7 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
     return (
         <>
         <div className={styles.taskWrapperDiv}>
-            <br/>
+            <h2 onClick={() => newTaskHandler()}>Cancel</h2>
             <h2>Add New Task</h2> 
             <label htmlFor="TaskName">Task:</label>
                 <input
@@ -108,7 +110,6 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
                     type ="text"
                     value= {draftTask.taskName}
                     onChange = {(e) => updateTaskName(e.target.value)}
-
                 />
             <label htmlFor="taskTimeFrame">Time Frame:</label>
                 <input
@@ -117,7 +118,7 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId}) => {
                     value = {draftTask.taskTimeFrame}
                     onChange={(e) => updateTaskTime(e.target.value)}
                 /> 
-                 <h2 onClick={addNewChunk}>+ Chunk</h2>
+                <h2 onClick={addNewChunk}>+ Chunk</h2>
                     {draftTask.chunks.map((chunk) => (
                         <AddAdditionalChunk
                             key={chunk.chunkId}

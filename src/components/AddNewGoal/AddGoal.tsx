@@ -14,9 +14,11 @@ const NewAddGoal:React.FC<goalProps> = ({
 }) => {
 
     return (
-        <div key = {goal.goalId} className= {style.mainDiv}>
-            <h2>Add Goal</h2>
-            <p>Provide a goal name and general time frame you wish to complete it.</p>
+        <div key = {goal.goalId} className= {style.addGoalWrapper}>
+            <section className={style.goalHeader}>
+                <h2>Add Goal</h2>
+                <p>Provide a goal name and general time frame you wish to complete it.</p>
+            </section>
             <label htmlFor="goalName">Goal:</label>
                 <input
                     name="goalName"
