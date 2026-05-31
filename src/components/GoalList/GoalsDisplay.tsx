@@ -16,6 +16,8 @@ const GoalsDisplay:React.FC = () => {
     const [openGoalNotes, setOpenGoalNotes] = useState("")
     const [viewNotes, setViewNotes] = useState("")
     
+    console.log(goals)
+
     const displayAddGoal = ():void => {
       setAddGoalForm(true)
     }
@@ -64,7 +66,7 @@ const GoalsDisplay:React.FC = () => {
             <div key={goal.goalId} className={styles.goalWrapper}>
               <div className={styles.goalHeader}>
                 <h2>
-                  Goal: {goal.goalName} - {goal.goalTimeFrame}
+                  {goal.goalName} - {goal.goalTimeFrame}
                 </h2> 
               </div>
 {/*GOAL COMPLETE STATUS DIV*/}
