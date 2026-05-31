@@ -1,12 +1,13 @@
 import { createContext, useContext, useEffect, useState} from "react";
 
+
 type PomodoroContextType = {
     timerMode: string,
     timer: number,
     isTimerRunning: boolean,
-
+    timerComplete: string | null,
     timerRunningHandler: () => void,
-    timerModeHandler : (value: string) => void,
+    timerModeHandler: (value: string) => void,
 }
 
 export const PomodoroContext = createContext<PomodoroContextType | null>(null)
@@ -15,6 +16,7 @@ export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({childre
     const [timerMode, setTimerMode] = useState("Work")
     const [timer, setTimer] = useState(10)
     const [isTimerRunning, setIsTimerRunning] = useState(false)
+    const [timerComplete, setTimerComplete] = useState("")
 
     const timerRunningHandler = () => { 
         if (Notification.permission === "granted") {
@@ -57,13 +59,24 @@ export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({childre
 
     useEffect(() => {
         if (timer === 0 && isTimerRunning) {
-            if (timerMode === "Work"){
-               new Notification("Work done! Resting Now!")
+            if (timerMode === "Work"){ 
+                setTimerComplete("Work session complete! Time to rest!")
+                setTimeout(() => {
+                    setTimerComplete("")
+                }, 5000)
+                new Notification("Work done! Resting Now!")
                 setTimerMode("Rest")
                 setIsTimerRunning(false)
-                setTimer(10)  
+                setTimer(10)                 
+
+ 
             }
             if (timerMode === "Rest"){
+                setTimerComplete("Rest session complete! Time to Work!")
+                setTimeout(() => { 
+                    setTimerComplete("")
+                }, 5000)
+       
                 new Notification("Rest done! Working Now!")
                 setTimerMode("Work")
                 setIsTimerRunning(false)
@@ -74,7 +87,7 @@ export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({childre
    
 return (
         <PomodoroContext.Provider value ={{
-            timer, timerMode, isTimerRunning, 
+            timer, timerMode, isTimerRunning, timerComplete,
             timerRunningHandler, timerModeHandler
         }}>
             {children}

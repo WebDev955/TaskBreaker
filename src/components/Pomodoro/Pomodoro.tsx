@@ -7,8 +7,6 @@ const { timerMode, timer, isTimerRunning,
         timerRunningHandler, timerModeHandler
     }= usePomodoro()
 
-
-
     return (
         <div>
             <h1>Timer for a Pomodoro</h1>
