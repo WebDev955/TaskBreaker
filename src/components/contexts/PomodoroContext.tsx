@@ -19,10 +19,10 @@ export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({childre
     const [timerComplete, setTimerComplete] = useState("")
 
     const timerRunningHandler = () => { 
-        if (Notification.permission === "granted") {
-            setIsTimerRunning(!isTimerRunning)
-        } else  Notification.requestPermission()
-        
+        if (typeof Notification !== "undefined" && Notification.permission !== "granted") {
+            Notification.requestPermission()
+        } 
+        setIsTimerRunning(!isTimerRunning)
     }
 
     const timerModeHandler = (value:string) => {
@@ -64,7 +64,10 @@ export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({childre
                 setTimeout(() => {
                     setTimerComplete("")
                 }, 5000)
-                new Notification("Work done! Resting Now!")
+                if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+                    new Notification("Work done! Resting Now!")
+                }
+                
                 setTimerMode("Rest")
                 setIsTimerRunning(false)
                 setTimer(10)                 
@@ -77,7 +80,10 @@ export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({childre
                     setTimerComplete("")
                 }, 5000)
        
-                new Notification("Rest done! Working Now!")
+                if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+                    new Notification("Rest done! Working Now!")
+                }
+                    
                 setTimerMode("Work")
                 setIsTimerRunning(false)
                 setTimer(15)
