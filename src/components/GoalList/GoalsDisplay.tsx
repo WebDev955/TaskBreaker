@@ -58,7 +58,7 @@ const GoalsDisplay:React.FC = () => {
             </div>
           }    
         {goals.map((goal) => {
-          if (goals.length === 0) {
+          if (goals.length < 0) {
             <p>Add A goal!</p>
           }
           if (goal.goalStatus !== "Active") return null;
