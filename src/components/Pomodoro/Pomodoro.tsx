@@ -2,13 +2,14 @@ import styles from "./Pomodoro.module.css"
 import { usePomodoro } from "../contexts/PomodoroContext";
 
 
+
 const Pomodoro:React.FC = () => {
 const { timerMode, timer, isTimerRunning, 
         timerRunningHandler, timerModeHandler
     }= usePomodoro()
 
     return (
-        <div>
+        <div className={styles.pomodoroWrapper}>
             <h1>Timer for a Pomodoro</h1>
             <section>
                 <div>

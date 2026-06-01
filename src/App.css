@@ -1,4 +1,3 @@
-
 #root {
   width: 95%;
   max-width: 650px;
@@ -10,3 +9,23 @@
   overflow-x: hidden;
 }
 
+.appTitle  {
+  display: flex;
+  flex-direction: column;
+}
+
+.appTitle h1 {
+  background-color: var(--alabaster-grey);
+  border: solid black 3px;
+  border-radius: 1px;
+  color: var(--rusty-spice);
+  padding: 10px;
+}
+.appTitle p {
+  border: solid black 2px;
+  padding: 10px;
+  background-color: var(--alabaster-grey);
+  color: var(--rusty-spice);
+  font-size: larger;
+  font-weight: 500;
+}

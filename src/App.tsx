@@ -11,8 +11,8 @@ import { PomodoroProvider, usePomodoro} from './components/contexts/PomodoroCont
 
 
 //IMPORTS - Styles 
-import './App.css'
-import styles from "../src/components/Pomodoro/Pomodoro.module.css"
+import "./App.css"
+import style from "../src/components/Pomodoro/Pomodoro.module.css"
 import SessionComplete from "../src/assets/SessionComplete.mp3"
 function App() {
   const [renderContent, setRenderContent] = useState("displayGoals")
@@ -35,7 +35,7 @@ function App() {
     return (
         <div>
           {timerComplete && 
-              <div className={styles.timerEndNotification}><p>{timerComplete}</p></div>
+              <div className={style.timerEndNotification}><p>{timerComplete}</p></div>
           }
         </div>
     )
@@ -46,9 +46,11 @@ function App() {
     <PomodoroProvider>
       <GoalsProvider>
         <ToastNofification/>
-        <h1>Task Breaker</h1>
         {renderContent === "displayGoals" &&
-         <p>Learn something new, break down one large goal into tasks and chunks and see the progress.</p>
+          <section className="appTitle">
+            <h1>Task Breaker</h1>
+            <p>Learn something new, break down one large goal into tasks and chunks and see the progress.</p>
+          </section>
         }
           {renderContent === "displayGoals" && <GoalsDisplay/>}
           {renderContent === "displayNotes" && <Notes/>}

@@ -48,13 +48,19 @@ const GoalsDisplay:React.FC = () => {
               {showAddGoalForm && 
                 <GoalForm/> 
               } 
-          <div className={styles.sortmenu}>
-            <h3>Sort Goals:</h3>
-            <p>Name</p>
-            <p>Length</p>
-          </div>
-        </div>
+          </div> 
+
+          {goals.length > 0 &&
+            <div className={styles.sortMenu}>
+              <h3>Sort Goals:</h3>
+              <p>Name</p>
+              <p>Length</p>
+            </div>
+          }    
         {goals.map((goal) => {
+          if (goals.length === 0) {
+            <p>Add A goal!</p>
+          }
           if (goal.goalStatus !== "Active") return null;
           const totalTasks = goal.tasks.length;
           const completedTasks = goal.tasks.filter(task => task.isTaskComplete).length;

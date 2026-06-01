@@ -1,3 +1,10 @@
+.pomodoroWrapper {
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px
+}
+
+
 .sessionTimer {
     border: 2px solid red;
 }
