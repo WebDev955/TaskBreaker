@@ -30,10 +30,12 @@ const ArchivedGoals:React.FC = () =>{
 
     return(
         <div className = {styles.mainDiv}>
-            <h1>Archived Goals</h1>
-            <p> When you don't have the time to commit to a goal, don't delete it, archive it. Come
-                back to it when you have the time to dedicate to it. Dont't give up on it.
-            </p>
+            <div className = {styles.archiveHeader}>
+                <h1>Archived Goals</h1>
+                <p> When you don't have the time to commit to a goal, don't delete it, archive it. Come
+                    back to it when you have the time to dedicate to it. Dont't give up on it.
+                </p>
+            </div>
             <div>
             {goals.map((goal) => (
                 goal.goalStatus === "Archive" 
@@ -50,23 +52,23 @@ const ArchivedGoals:React.FC = () =>{
                                 open={open}
                                 onCancel={handleCancel}
                                 footer={[
-                                    <Button 
-                                        key="back" 
-                                        onClick={handleCancel} 
-                                        style= {{backgroundColor: "lightgreen"}}
+                                    <Button
+                                        key="back"
+                                        onClick={handleCancel}
+                                        style= {{backgroundColor: "var(--mint-leaf)", color: "black", border: "1.5px solid black", fontSize: "13px"}}
                                     >
                                         Keep Goal!
                                     </Button>,
-                                    <Button 
-                                        key="submit" 
-                                        type="primary" 
+                                    <Button
+                                        key="submit"
+                                        type="primary"
                                         onClick={()=> handleOk(goal.goalId)}
-                                        style= {{backgroundColor: "red", color: "black"}}
+                                        style= {{backgroundColor: "var(--crimson-violet)", color: "var(--alabaster-grey)", border: "1.5px solid black", fontSize: "13px"}}
                                         >
                                         Delete Goal
                                     </Button>
                                 ]}>
-                                <p style= {{fontSize: "15px"}}>Are you sure you want to delete <strong>{goal.goalName || "GOAL"}</strong> for good?</p>
+                                <p style= {{fontSize: "13px"}}>Are you sure you want to delete <strong>{goal.goalName || "GOAL"}</strong> for good?</p>
                             </Modal>
                       </div>
                     

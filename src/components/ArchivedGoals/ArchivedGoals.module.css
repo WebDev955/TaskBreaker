@@ -1,29 +1,63 @@
-  .mainDiv {
-    background-color: tan;
-    color: black;
-    max-width: 412px;
-  }
+.mainDiv {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 100px;
+  padding-bottom: 10px;
+  border-top: 3px solid black;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  background-color: var(--crimson-violet);
+  color: var(--alabaster-grey);
+  box-shadow: 0px -3px 10px 0px #0000007f;
+}
 
-  .goalCard {
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
-    justify-content: space-evenly;
-    max-width: 100%;
-    background-color: lightblue;
-    color: black;
-    margin: 15px;
-    border-radius: 25px;
-    border: black 1px solid;
-  box-shadow: 0px 10px 13px -7px #000000, 0px 0px 34px 10px rgba(0,0,0,0);
-  }
+.archiveHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
 
-  .goalOptions {
-    display: flex;
-    gap: 20px;
-    cursor: pointer;
-    padding: 5px;
-    background-color: beige;
-    border: 2px solid black
-  }
-  
+.archiveHeader h1 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+}
+
+.archiveHeader p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.goalCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: var(--alabaster-grey);
+  color: black;
+  border: 2px solid black;
+  border-radius: 14px;
+  box-shadow: 0px 14px 0px 1px #00000033;
+}
+
+.goalCard p {
+  margin: 2px 0 0 0;
+  font-size: 12px;
+}
+
+.goalOptions {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px;
+}

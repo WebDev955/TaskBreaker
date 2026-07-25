@@ -1,21 +1,20 @@
 .navbar{
-    position: fixed; 
+    position: fixed;
     bottom:0;
     left:0;
     width: 100vw;
     margin-top: auto;
     background-color: var(--alabaster-grey);
     color: black;
-    border: solid black 5px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    border: solid black 2px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-.navbar ul {    
-    padding-left: 5px;
-    padding-right: 5px;
+.navbar ul {
+    padding: 5px;
+    margin: 0;
     display: flex;
-    justify-content: flex-start;
     justify-content: space-evenly;
     list-style: none;
 }
@@ -23,14 +22,14 @@
 .navbar li{
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    padding: 10px;
-    background-color: #ff661f;
-    border: 2px solid black;
-    border-radius: 5px;
+    align-items: center;
+    padding: 6px;
+    background-color: var(--rusty-spice);
+    border: 1.5px solid black;
+    border-radius: 8px;
 }
 
 .navbar li:hover {
     cursor: pointer;
-    background-color: rgb(253, 176, 176);
+    background-color: var(--mint-leaf);
 }

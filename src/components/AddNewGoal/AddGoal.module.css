@@ -1,16 +1,17 @@
 .addGoalWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    background-color: grey;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-size: larger;
+    justify-content: center;
+    background-color: var(--alabaster-grey);
+    color: black;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 13px;
 }
 
 .addGoalWrapper > label {
-    font-size: larger;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -21,7 +22,12 @@
     margin-bottom: 0px;
 }
 
+.goalHeader h2 {
+    font-size: 16px;
+    margin: 0 0 4px 0;
+}
 
 .goalHeader > p {
     margin-top: 0px;
+    font-size: 12px;
 }

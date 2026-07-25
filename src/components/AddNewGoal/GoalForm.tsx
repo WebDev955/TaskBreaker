@@ -213,11 +213,11 @@ console.log(tasks)
                         />
                     ))}
                 </div>
-                <h2 onClick={() => addNewTask()}> + Task</h2>  
-                <p>Privde a single task to meet your goal and how long it might take to finish.</p>
+                <button type="button" className={style.addTaskButton} onClick={() => addNewTask()}>+ Task</button>
+                <p className={style.formDescription}>Privde a single task to meet your goal and how long it might take to finish.</p>
                 <div>
                     <hr/>
-                    <button type="submit">Save Goal!</button>
+                    <button className={style.saveGoalButton} type="submit">Save Goal!</button>
                 </div>
             </form>
         </div>

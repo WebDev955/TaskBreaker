@@ -41,10 +41,15 @@ const ChunksDisplay:React.FC<ChunksDisplayProps> = ({chunks, taskId, goalId}) =>
     return (
       <div className={styles.mainChunkDisplayWrapper}>
         <ul className={styles.chunksList}>
-          <button onClick={(e) => { 
-            e.stopPropagation() 
-            setOpenNewChunk(true)
-          }}> + Chunk </button>
+          <button
+            className={styles.addChunkButton}
+            onClick={(e) => {
+              e.stopPropagation()
+              setOpenNewChunk(true)
+            }}
+          >
+            + Chunk
+          </button>
           {openNewChunk && (
             <AddSingleChunk
               taskId={taskId}

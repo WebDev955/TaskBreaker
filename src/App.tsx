@@ -46,12 +46,6 @@ function App() {
     <PomodoroProvider>
       <GoalsProvider>
         <ToastNofification/>
-        {renderContent === "displayGoals" &&
-          <section className="appTitle">
-            <h1>Task Breaker</h1>
-            <p>Learn something new, break down one large goal into tasks and chunks and see the progress.</p>
-          </section>
-        }
           {renderContent === "displayGoals" && <GoalsDisplay/>}
           {renderContent === "displayNotes" && <Notes/>}
           {renderContent === "displayArchive" && <ArchivedGoals/>}

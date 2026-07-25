@@ -100,13 +100,14 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId, newTaskHandler}) 
     }
  
     return (
-        <>
         <div className={styles.taskWrapperDiv}>
-            <h2 onClick={() => newTaskHandler()}>Cancel</h2>
-            <h2>Add New Task</h2> 
+            <div className={styles.taskHeaderRow}>
+                <h3>Add New Task</h3>
+                <button className={styles.cancelButton} onClick={() => newTaskHandler()}>Cancel</button>
+            </div>
             <label htmlFor="TaskName">Task:</label>
                 <input
-                    name = "TaskName" 
+                    name = "TaskName"
                     type ="text"
                     value= {draftTask.taskName}
                     onChange = {(e) => updateTaskName(e.target.value)}
@@ -117,8 +118,8 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId, newTaskHandler}) 
                     type = "text"
                     value = {draftTask.taskTimeFrame}
                     onChange={(e) => updateTaskTime(e.target.value)}
-                /> 
-                <h2 onClick={addNewChunk}>+ Chunk</h2>
+                />
+                <button className={styles.addChunkButton} onClick={addNewChunk}>+ Chunk</button>
                     {draftTask.chunks.map((chunk) => (
                         <AddAdditionalChunk
                             key={chunk.chunkId}
@@ -129,12 +130,8 @@ const AddAdditionalTask: React.FC<AddNewTaskProps> = ({goalId, newTaskHandler}) 
                             updateChunkTime={updateChunkTime}
                         />
                     ))}
-                 <p onClick = {() => updateGoalTaskHandlder(goalId, draftTask)}>Save New Task</p>
+                 <button className={styles.saveButton} onClick = {() => updateGoalTaskHandlder(goalId, draftTask)}>Save New Task</button>
         </div>
-        <div>
-            <br/>
-        </div>
-      </>
     )
 }
 

@@ -3,14 +3,15 @@
   justify-content: space-around;
   flex-direction: column;
   width: 90%;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  border-top: 4px solid black;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border-top: 3px solid black;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
   background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
   box-shadow: 0px -3px 10px 0px #0000007f;
 }
 
@@ -20,16 +21,25 @@
   align-items: center;
 }
 
+.taskHeader h3 {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.taskHeader p {
+  margin: 2px 0 6px 0;
+  font-size: 13px;
+}
+
 .taskHeader button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 15px;
-  padding: 5px;
+  font-size: 13px;
+  padding: 4px 8px;
   background-color: whitesmoke;
-  border: none;
   border: solid black 2px;
-  border-radius: 20px;
+  border-radius: 16px;
 
 }
 
@@ -39,7 +49,7 @@
 
 .taskList {
   font-weight: 500;
-  font-size: larger;
+  font-size: 14px;
   list-style: none;
   padding-left: 1px;
   text-align: left;
@@ -47,13 +57,13 @@
 
 .taskList li {
   list-style: none;
-  padding-left: 10px;
+  padding-left: 8px;
   text-align: left;
-  padding: 5px;
+  padding: 4px;
 }
 
 .task {
-  padding-top: 15px;
+  padding-top: 10px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -64,8 +74,8 @@
 
 }
 .downArrow {
-    margin-left: auto;  
-    margin-right: 25px;
+    margin-left: auto;
+    margin-right: 15px;
 }
 
 .downArrow:hover{

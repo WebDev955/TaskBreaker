@@ -10,20 +10,32 @@ const { timerMode, timer, isTimerRunning,
 
     return (
         <div className={styles.pomodoroWrapper}>
-            <h1>Timer for a Pomodoro</h1>
-            <section>
-                <div>
-                    <button onClick = {() => timerModeHandler("Work")}>Work</button> 
-                    <button onClick = {() => timerModeHandler("Rest")}>Rest</button>
+            <section className={styles.pomodoroHeader}>
+                <h1>Pomodoro</h1>
+            </section>
+            <section className={styles.sessionSection}>
+                <div className={styles.modeToggle}>
+                    <button
+                        className={`${styles.modeButton} ${timerMode === "Work" ? styles.modeButtonActive : ""}`}
+                        onClick = {() => timerModeHandler("Work")}
+                    >
+                        Work
+                    </button>
+                    <button
+                        className={`${styles.modeButton} ${timerMode === "Rest" ? styles.modeButtonActive : ""}`}
+                        onClick = {() => timerModeHandler("Rest")}
+                    >
+                        Rest
+                    </button>
                 </div>
                 {timerMode === "Work"
-                   ? <div>
+                   ? <div className={styles.sessionDisplay}>
                        <p className={styles.sessionTimer}>Work Session Timer: {Math.floor(timer/60)}:{(timer % 60)} min</p>
-                       <button onClick={() => timerRunningHandler()}>{isTimerRunning? "Pause" : "Start"}</button>
+                       <button className={styles.actionButton} onClick={() => timerRunningHandler()}>{isTimerRunning? "Pause" : "Start"}</button>
                     </div>
-                    : <div>
-                       <p>Rest Session Timer: {Math.floor(timer/60)}:{(timer % 60)} min</p>
-                       <button onClick={() => timerRunningHandler()}>{isTimerRunning? "Pause" : "Start"}</button>
+                    : <div className={styles.sessionDisplay}>
+                       <p className={styles.sessionTimer}>Rest Session Timer: {Math.floor(timer/60)}:{(timer % 60)} min</p>
+                       <button className={styles.actionButton} onClick={() => timerRunningHandler()}>{isTimerRunning? "Pause" : "Start"}</button>
                     </div>
                 }
             </section>

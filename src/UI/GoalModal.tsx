@@ -25,7 +25,11 @@ const GoalModal = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button
+        type="primary"
+        onClick={showModal}
+        style={{ backgroundColor: "whitesmoke", color: "black", border: "2px solid black", borderRadius: "20px" }}
+      >
         Add Goal!
       </Button>
       <Modal

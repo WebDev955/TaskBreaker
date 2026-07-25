@@ -12,20 +12,32 @@
 .appTitle  {
   display: flex;
   flex-direction: column;
+  border: solid black 2px;
+  border-radius: 1px;
+  background-color: var(--alabaster-grey);
 }
 
 .appTitle h1 {
-  background-color: var(--alabaster-grey);
-  border: solid black 3px;
-  border-radius: 1px;
+  margin: 0;
+  padding: 6px;
+  font-size: 20px;
   color: var(--rusty-spice);
-  padding: 10px;
 }
+
+.appTitle h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 4px auto 0 auto;
+  background-color: black;
+}
+
 .appTitle p {
-  border: solid black 2px;
-  padding: 10px;
-  background-color: var(--alabaster-grey);
+  margin: 0;
+  padding: 4px 8px 6px 8px;
   color: var(--rusty-spice);
-  font-size: larger;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
 }
