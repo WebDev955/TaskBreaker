@@ -1,34 +1,38 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
-import GoalForm from '../components/AddNewGoal/GoalForm';
+import React, { useState } from "react"
+import { Button, Modal } from "antd"
+import GoalForm from "../components/AddNewGoal/GoalForm"
 
 const GoalModal = () => {
-  const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
-  
+  const [loading, setLoading] = useState(false)
+  const [open, setOpen] = useState(false)
+
   const showModal = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleOk = () => {
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
-      setLoading(false);
-      setOpen(false);
-    }, 1000);
-  };
+      setLoading(false)
+      setOpen(false)
+    }, 1000)
+  }
 
-  const
-   handleCancel = () => {
-    setOpen(false);
-  };
+  const handleCancel = () => {
+    setOpen(false)
+  }
 
   return (
     <>
       <Button
         type="primary"
         onClick={showModal}
-        style={{ backgroundColor: "whitesmoke", color: "black", border: "2px solid black", borderRadius: "20px" }}
+        style={{
+          backgroundColor: "whitesmoke",
+          color: "black",
+          border: "2px solid black",
+          borderRadius: "20px",
+        }}
       >
         Add Goal!
       </Button>
@@ -39,11 +43,9 @@ const GoalModal = () => {
         onCancel={handleCancel}
         footer={[null]}
       >
-        <GoalForm
-          closeModal = {handleOk}
-        />
+        <GoalForm closeModal={handleOk} />
       </Modal>
     </>
-  );
-};
-export default GoalModal;
+  )
+}
+export default GoalModal

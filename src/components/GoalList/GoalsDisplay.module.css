@@ -1,115 +1,114 @@
-.mainWrapper{
-    margin-bottom: 80px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom:200px;
+.mainWrapper {
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 200px;
 }
 .newGoalSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    padding: 8px;
-    text-align: center;
-    border: solid black 2px;
-    border-radius: 12px;
-    background-color: var(--mint-leaf);
-    color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  padding: 8px;
+  text-align: center;
+  border: solid black 2px;
+  border-radius: 12px;
+  background-color: var(--mint-leaf);
+  color: black;
 }
 
 .newGoalSection h2 {
-    margin: 0 0 4px 0;
-    font-size: 16px;
+  margin: 0 0 4px 0;
+  font-size: 16px;
 }
 
 .newGoalSection p {
-    margin: 0 0 6px 0;
-    font-size: 12px;
+  margin: 0 0 6px 0;
+  font-size: 12px;
 }
 .goalListSection {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    padding: 8px;
-    border: solid black 2px;
-    border-radius: 12px;
-    background-color: var(--rusty-spice);
-    box-shadow: 0px -3px 10px 0px #0000007f;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: solid black 2px;
+  border-radius: 12px;
+  background-color: var(--rusty-spice);
+  box-shadow: 0px -3px 10px 0px #0000007f;
 }
 
 .sortMenu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px;
-    padding: 6px;
-    color: black;
-    background-color: var(--alabaster-grey);
-    font-weight: 700;
-    font-size: 13px;
-    border: 2px solid black;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 6px;
+  color: black;
+  background-color: var(--alabaster-grey);
+  font-weight: 700;
+  font-size: 13px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .sortMenu h3 {
-    margin: 0;
-    font-size: 14px;
+  margin: 0;
+  font-size: 14px;
 }
 
 .sortMenu p {
-    margin: 0;
+  margin: 0;
 }
 
 .goalWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 100%;
-    color: black;
-    background-color: var(--alabaster-grey);
-    border-top: 2px solid black;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    box-shadow: 0px 14px 0px 1px #00000033;
-    overflow: hidden;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  color: black;
+  background-color: var(--alabaster-grey);
+  border-top: 2px solid black;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0px 14px 0px 1px #00000033;
+  overflow: hidden;
 }
-.goalWrapper h2{
-    text-align: left;
-    padding-left: 8px;
-    font-size: 18px;
+.goalWrapper h2 {
+  text-align: left;
+  padding-left: 8px;
+  font-size: 18px;
 }
 .goalHeader {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 .goalHeader h2 {
-    margin-bottom: 0;
-    margin-top: 4px;
+  margin-bottom: 0;
+  margin-top: 4px;
 }
 .progressBar {
-    width: 90%;
-    height: 10px;
-    background-color: transparent;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 6px 0;
-    border: 2px solid black;
+  width: 90%;
+  height: 10px;
+  background-color: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 6px 0;
+  border: 2px solid black;
 }
 .progressFill {
   height: 100%;
@@ -117,49 +116,49 @@
   transition: width 0.3s ease;
 }
 .goalNote {
-    background-color: color-mix(in srgb, var(--crimson-violet) 45%, transparent);
-    border: solid 1px black;
-    padding: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+  background-color: color-mix(in srgb, var(--crimson-violet) 45%, transparent);
+  border: solid 1px black;
+  padding: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .goalOptionsMenu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: row;
-    gap: 6px;
-    padding: 6px;
-    width: 100%;
-    margin-top: 8px;
-    background-color: color-mix(in srgb, var(--rusty-spice) 57.5%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+  gap: 6px;
+  padding: 6px;
+  width: 100%;
+  margin-top: 8px;
+  background-color: color-mix(in srgb, var(--rusty-spice) 57.5%, transparent);
 }
 
 .goalOptionsMenu button {
-    padding: 4px 8px;
-    background-color: whitesmoke;
-    color: black;
-    border: solid black 2px;
-    border-radius: 16px;
-    cursor: pointer;
-    font-size: 12px;
+  padding: 4px 8px;
+  background-color: whitesmoke;
+  color: black;
+  border: solid black 2px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 .archiveButton {
-    background-color: var(--crimson-violet);
-    color: var(--alabaster-grey);
+  background-color: var(--crimson-violet);
+  color: var(--alabaster-grey);
 }
 
 .focusGoal {
-    margin-top: 8px;
-    padding: 4px 10px;
-    background-color: var(--rusty-spice);
-    color: var(--alabaster-grey);
-    border: solid black 2px;
-    border-radius: 16px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 13px;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
+  border: solid black 2px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
 }

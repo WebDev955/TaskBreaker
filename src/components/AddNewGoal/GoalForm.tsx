@@ -12,11 +12,10 @@ type AddNewGoalProps = {
 }
 
 const GoalForm: React.FC<AddNewGoalProps> = ({closeModal}) => {
-    
     const {addGoal} = useGoals()
 
     /**************************************************/ 
-    /*Default Goal and Task States                ****/
+    /*Default Goal and Task States                    /
     /************************************************/
     const [goal, setGoal] = useState({
         goalId: crypto.randomUUID(),
@@ -92,17 +91,14 @@ console.log(tasks)
         setGoal((prev) => ({
             ...prev,
             goalName: value,
-        }));
-        
+        }));   
 }
     const updateGoalTime = (value:string):void => {
         setGoal((prev) => ({
             ...prev,
             goalTimeFrame: value,
         }));
-        
 }
-
     //Update Task properties
     const updateTaskName = (taskId: string, value: string):void => {
         setTasks((prev)=>
@@ -140,7 +136,6 @@ console.log(tasks)
                 )
             )
         };
-
     const updateChunkTime = (taskId: string, chunkId: string, value: string):void => {
         setTasks ((prev) => 
             prev.map((task) =>

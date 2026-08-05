@@ -1,125 +1,125 @@
-.mainNotesWrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 8px;
-    margin-bottom: 100px;
-    background-image: url("../../assets/Notebook.jpg");
-    background-size: cover;
-    color: black;
-    border-top: solid black 8px;
-    border-left: solid black 4px;
-    border-right: solid black 2px;
-    border-bottom: solid black 2px;
-    border-top-left-radius: 16%;
-    border-top-right-radius: 16%;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    box-shadow: 0px -3px 10px 0px #0000007f;
-    overflow: hidden;
+.mainNotesWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 100px;
+  background-image: url("../../assets/Notebook.jpg");
+  background-size: cover;
+  color: black;
+  border-top: solid black 8px;
+  border-left: solid black 4px;
+  border-right: solid black 2px;
+  border-bottom: solid black 2px;
+  border-top-left-radius: 16%;
+  border-top-right-radius: 16%;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0px -3px 10px 0px #0000007f;
+  overflow: hidden;
 }
 .noteBookHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 8px;
-    border-bottom: solid black 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  border-bottom: solid black 2px;
 }
 .noteBookHeader h1 {
-    margin: 0 0 4px 0;
-    font-size: 20px;
+  margin: 0 0 4px 0;
+  font-size: 20px;
 }
 
 .noteBookHeader button {
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-    padding: 4px 8px;
-    margin-bottom: 10px;
-    background-color: whitesmoke;
-    border: solid black 2px;
-    border-radius: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  padding: 4px 8px;
+  margin-bottom: 10px;
+  background-color: whitesmoke;
+  border: solid black 2px;
+  border-radius: 16px;
 }
 .newNoteDiv {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 90%;
-   margin: 8px auto;
-   background-color: var(--rusty-spice);
-   color: var(--alabaster-grey);
-   border: 2px solid black;
-   border-radius: 12px;
-   box-shadow: -1px 2px 21px 13px #00000033;
-   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 8px auto;
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
+  border: 2px solid black;
+  border-radius: 12px;
+  box-shadow: -1px 2px 21px 13px #00000033;
+  padding: 8px;
 }
 .newNoteDiv button {
-    margin-top: 6px;
-    margin-bottom: 6px;
-    padding: 4px 8px;
-    background-color: whitesmoke;
-    color: black;
-    border: solid black 2px;
-    border-radius: 16px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 4px 8px;
+  background-color: whitesmoke;
+  color: black;
+  border: solid black 2px;
+  border-radius: 16px;
 }
 .newNoteDiv input {
-    width: 80%;
-    padding: 4px;
-    margin-bottom: 6px;
-    border: black solid 2px;
-    border-radius: 6px;
+  width: 80%;
+  padding: 4px;
+  margin-bottom: 6px;
+  border: black solid 2px;
+  border-radius: 6px;
 }
 .newNoteDiv textarea {
-    width: 80%;
-    height: 80px;
-    margin-bottom: 6px;
-    border: black solid 2px;
-    border-radius: 6px;
+  width: 80%;
+  height: 80px;
+  margin-bottom: 6px;
+  border: black solid 2px;
+  border-radius: 6px;
 }
 .noteListWrapper {
-    background-color: transparent;
+  background-color: transparent;
 }
 .noteDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 .noteDiv h2 {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid black;
-    background-color: var(--rusty-spice);
-    color: var(--alabaster-grey);
-    padding: 8px;
-    font-size: 15px;
-    border-radius: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid black;
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 18px;
 }
 .note {
-    background-color: var(--alabaster-grey);
-    border: 2px solid black;
-    border-radius: 12px;
-    align-items: center;
-    width: 80%;
-    padding: 8px;
-    margin-top: 8px;
-    font-size: 13px;
+  background-color: var(--alabaster-grey);
+  border: 2px solid black;
+  border-radius: 12px;
+  align-items: center;
+  width: 80%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 13px;
 }
 
 .noteDiv button {
-    border-radius: 16px;
-    background-color: var(--crimson-violet);
-    color: var(--alabaster-grey);
-    border: 2px solid black;
-    font-size: 13px;
-    padding: 6px;
-    margin-top: 6px;
+  border-radius: 16px;
+  background-color: var(--crimson-violet);
+  color: var(--alabaster-grey);
+  border: 2px solid black;
+  font-size: 13px;
+  padding: 6px;
+  margin-top: 6px;
 }

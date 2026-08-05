@@ -1,39 +1,39 @@
-.mainChunkDisplayWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 4px;
-    border-top: 2px solid black;
-    background-color: var(--alabaster-grey);
-    font-weight: 700;
-    font-size: 13px;
-    font-style: italic;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
-    border-bottom-left-radius: 14px;
-    border-bottom-right-radius: 14px;
-    margin-left: 8px;
-    margin-right: 8px;
+.mainChunkDisplayWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4px;
+  border-top: 2px solid black;
+  background-color: var(--alabaster-grey);
+  font-weight: 700;
+  font-size: 13px;
+  font-style: italic;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
-.chunksList li{
-    padding-bottom: 6px;
+.chunksList li {
+  padding-bottom: 6px;
 }
 .chunkText {
-    padding-left: 6px;
+  padding-left: 6px;
 }
 
 .addChunkButton {
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 500;
-    padding: 4px 8px;
-    margin: 6px 0;
-    background-color: whitesmoke;
-    color: black;
-    border: solid black 2px;
-    border-radius: 16px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 4px 8px;
+  margin: 6px 0;
+  background-color: whitesmoke;
+  color: black;
+  border: solid black 2px;
+  border-radius: 16px;
+  cursor: pointer;
 }

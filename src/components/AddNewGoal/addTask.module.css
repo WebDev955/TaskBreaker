@@ -1,21 +1,21 @@
-.taskWrapperDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--rusty-spice);
-    color: var(--alabaster-grey);
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-size: 13px;
+.taskWrapperDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 13px;
 }
 
 .taskWrapperDiv > h2 {
-    font-size: 15px;
-    margin: 0 0 4px 0;
+  font-size: 15px;
+  margin: 0 0 4px 0;
 }
 
 .taskWrapperDiv > label {
-    font-size: 13px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 }

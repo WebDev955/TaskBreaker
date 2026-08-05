@@ -1,10 +1,10 @@
 //Imports - hooks/Types
-import { useState } from "react";
+import { useState } from "react"
 import type { Task } from "../AddNewGoal/types"
-import { useGoals } from "../contexts/GoalContext";
+import { useGoals } from "../contexts/GoalContext"
 //Imports - Components
-import ChunksDisplay from "./ChunksDisplay";
-import AddAdditionalTask from "./AddAdditionalTask";
+import ChunksDisplay from "./ChunksDisplay"
+import AddAdditionalTask from "./AddAdditionalTask"
 //Imports - styles, images
 import styles from "./TasksDisplay.module.css"
 import CheckBoxChecked from "../../../public/CheckBoxChecked.png"
@@ -12,98 +12,79 @@ import CheckBoxEmpty from "../../../public/CheckBoxEmpty.png"
 import DownArrow from "../../../public/DownArrow.png"
 import AddButton from "../../../public/AddButton.png"
 
-
 type TasksDisplayProps = {
-  tasks: Task[];
-  goalId: string;
-}; 
+  tasks: Task[]
+  goalId: string
+}
 
-const TasksDisplay:React.FC<TasksDisplayProps> = ({tasks, goalId}) => {
-    
-    const {checkTask} = useGoals()
-  
-    const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
-    const [openNewTask, setOpenNewTask] = useState<boolean>(false)
-    
-    const checkBoxHandler = (goalId: string, taskId:string) =>{
-      checkTask(goalId, taskId)
-    };
-    
-    const newTaskHandler = () =>{
-      setOpenNewTask(true)
-      if (openNewTask === true){
-        setOpenNewTask(!openNewTask)
-      }
-    }
+const TasksDisplay: React.FC<TasksDisplayProps> = ({ tasks, goalId }) => {
+  const { checkTask } = useGoals()
 
-    const displayChunks = (taskId: string) => {
-       setSelectedTaskId(prev =>
-          prev === taskId 
-            ? null 
-            : taskId
-        );
+  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
+  const [openNewTask, setOpenNewTask] = useState<boolean>(false)
+
+  const checkBoxHandler = (goalId: string, taskId: string) => {
+    checkTask(goalId, taskId)
+  }
+
+  const newTaskHandler = () => {
+    setOpenNewTask(true)
+    if (openNewTask === true) {
+      setOpenNewTask(!openNewTask)
     }
-    return (
-      <div className={styles.mainTaskDisplayWrapper}>
-        <div className={styles.taskHeader}>
-          <h3>Tasks to Complete:</h3>
-          <p>Tasks Completed: {tasks.filter(task => task.isTaskComplete).length}/{tasks.length}</p>
-          <button onClick={() => newTaskHandler()}>
-            <img src= {AddButton} width="30px"/>
-            Add New Task
-          </button>
-        </div>
-        <ul className= {styles.taskList}>
-          {openNewTask && (
-            <AddAdditionalTask
-              goalId = {goalId}
-              newTaskHandler = {newTaskHandler}
-            />
-          )}
-                    
-          {tasks.map(task => (
-            <li 
-              key={task.taskId} 
-              onClick = {() => displayChunks(task.taskId)}
-            > 
-            <div className={styles.task}>
-                <img  
-                  width="20px" 
-                  src = { 
-                      task.isTaskComplete
-                     ? CheckBoxChecked
-                     : CheckBoxEmpty
-                  }
-                  onClick = {(e) => {
-                    e.stopPropagation(); 
-                    checkBoxHandler(goalId, task.taskId);
-                  }}
-                />
-                <span className={styles.taskText}>{
-                  task.taskName} - {task.taskTimeFrame}
-                </span>
-                  <img
-                    className= {styles.downArrow}
-                    width="20"
-                    src = {DownArrow}
-                  /> 
-                </div>
-              <div>
-                {selectedTaskId === task.taskId && (
-                  <ChunksDisplay 
-                    chunks = {task.chunks} 
-                    taskId = {task.taskId}
-                    goalId = {goalId}
-                    taskName = {task.taskName}
-                  />
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
+  }
+
+  const displayChunks = (taskId: string) => {
+    setSelectedTaskId((prev) => (prev === taskId ? null : taskId))
+  }
+  return (
+    <div className={styles.mainTaskDisplayWrapper}>
+      <div className={styles.taskHeader}>
+        <h3>Tasks to Complete:</h3>
+        <p>
+          Tasks Completed: {tasks.filter((task) => task.isTaskComplete).length}/
+          {tasks.length}
+        </p>
+        <button onClick={() => newTaskHandler()}>
+          <img src={AddButton} width="30px" />
+          Add New Task
+        </button>
       </div>
-    )
-};
-  export default TasksDisplay
-  
-  
+      <ul className={styles.taskList}>
+        {openNewTask && (
+          <AddAdditionalTask goalId={goalId} newTaskHandler={newTaskHandler} />
+        )}
+
+        {tasks.map((task) => (
+          <li key={task.taskId} onClick={() => displayChunks(task.taskId)}>
+            <div className={styles.task}>
+              <img
+                width="20px"
+                src={task.isTaskComplete ? CheckBoxChecked : CheckBoxEmpty}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  checkBoxHandler(goalId, task.taskId)
+                }}
+              />
+              <span className={styles.taskText}>
+                {task.taskName} - {task.taskTimeFrame}
+              </span>
+              <img className={styles.downArrow} width="20" src={DownArrow} />
+            </div>
+            <div>
+              {selectedTaskId === task.taskId && (
+                <ChunksDisplay
+                  chunks={task.chunks}
+                  taskId={task.taskId}
+                  goalId={goalId}
+                  taskName={task.taskName}
+                />
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+export default TasksDisplay

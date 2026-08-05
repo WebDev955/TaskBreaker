@@ -1,8 +1,5 @@
-import React from 'react';
-import { Flex, Progress } from 'antd';
-
-
-
+import React from "react"
+import { Flex, Progress } from "antd"
 
 const TaskProgressBar: React.FC = () => (
   <Flex gap="small" wrap>
@@ -10,6 +7,6 @@ const TaskProgressBar: React.FC = () => (
     <Progress type="circle" percent={70} status="exception" />
     <Progress type="circle" percent={100} />
   </Flex>
-);
+)
 
 export default TaskProgressBar

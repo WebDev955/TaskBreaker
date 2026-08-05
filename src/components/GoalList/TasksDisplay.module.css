@@ -40,11 +40,10 @@
   background-color: whitesmoke;
   border: solid black 2px;
   border-radius: 16px;
-
 }
 
 .mainTaskDisplayWrapper ul {
-    list-style: none;
+  list-style: none;
 }
 
 .taskList {
@@ -71,14 +70,13 @@
 
 .taskText {
   margin-left: 8px;
-
 }
 .downArrow {
-    margin-left: auto;
-    margin-right: 15px;
+  margin-left: auto;
+  margin-right: 15px;
 }
 
-.downArrow:hover{
+.downArrow:hover {
   transform: scale(1.5);
   transform: scaleY(-1);
 }

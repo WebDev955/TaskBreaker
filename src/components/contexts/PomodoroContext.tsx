@@ -1,108 +1,127 @@
-import { createContext, useContext, useEffect, useState} from "react";
-
-
+//IMPORTS - HOOKS
+import { createContext, useContext, useEffect, useState } from "react"
+//TYPES - DEFINE TYPE
 type PomodoroContextType = {
-    timerMode: string,
-    timer: number,
-    isTimerRunning: boolean,
-    timerComplete: string | null,
-    timerRunningHandler: () => void,
-    timerModeHandler: (value: string) => void,
+  timerMode: string
+  timer: number
+  isTimerRunning: boolean
+  timerCompleteToast: string | null
+  timerRunningHandler: () => void
+  timerModeHandler: (value: string) => void
 }
 
 export const PomodoroContext = createContext<PomodoroContextType | null>(null)
 
-export const PomodoroProvider:React.FC <{children: React.ReactNode}> = ({children}) => {
-    const [timerMode, setTimerMode] = useState("Work")
-    const [timer, setTimer] = useState(10)
-    const [isTimerRunning, setIsTimerRunning] = useState(false)
-    const [timerComplete, setTimerComplete] = useState("")
+export const PomodoroProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  //ESTABLISH DEFAULT STATE
+  const [timerMode, setTimerMode] = useState("Work")
+  const [timer, setTimer] = useState(10)
+  const [isTimerRunning, setIsTimerRunning] = useState(false)
+  const [timerCompleteToast, setTimerCompleteToast] = useState("")
 
-    const timerRunningHandler = () => { 
-        if (typeof Notification !== "undefined" && Notification.permission !== "granted") {
-            Notification.requestPermission()
-        } 
-        setIsTimerRunning(!isTimerRunning)
+  //FUNCTION - if running timer completes, grant notification permssion for broswer to display message otherwise set timer to not running
+  // else, set timer is running to false
+  const timerRunningHandler = () => {
+    if (
+      typeof Notification !== "undefined" &&
+      Notification.permission !== "granted"
+    ) {
+      Notification.requestPermission()
     }
+    setIsTimerRunning(!isTimerRunning)
+  }
+  //FUNCTION - set right timer mode and set correct time amount
+  const timerModeHandler = (value: string) => {
+    if (timerMode === value) return
 
-    const timerModeHandler = (value:string) => {
-        if (timerMode === value) return
-            
+    setIsTimerRunning(false)
+
+    if (value === "Work") {
+      setTimerMode(value)
+      setTimer(10)
+    }
+    if (value === "Rest") {
+      setTimerMode(value)
+      setTimer(10)
+    }
+  }
+  //drives the countdown timer's ticking, checking every 1sec if timer has reached 0:00sec while isTimerRunning === true
+  useEffect(() => {
+    if (isTimerRunning === false) return
+    const intervalId = setInterval(() => {
+      setTimer((prevTime) => {
+        if (prevTime === 1) {
+          clearInterval(intervalId)
+          return 0
+        }
+        return prevTime - 1
+      })
+    }, 1000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
+  }, [isTimerRunning])
+
+  //re-render when timer completes, determine what toast notification to show,  set timer to opposite mode
+  useEffect(() => {
+    if (timer === 0 && isTimerRunning) {
+      if (timerMode === "Work") {
+        setTimerCompleteToast("Work session complete! Time to rest!")
+        setTimeout(() => {
+          setTimerCompleteToast("")
+        }, 5000)
+        if (
+          typeof Notification !== "undefined" &&
+          Notification.permission === "granted"
+        ) {
+          new Notification("Work done! Resting Now!")
+        }
+        setTimerMode("Rest")
         setIsTimerRunning(false)
+        setTimer(10)
+      }
 
-            if (value === "Work") {
-                setTimerMode(value)
-                setTimer(10)
-            }
-            if (value === "Rest"){
-                setTimerMode(value)
-                setTimer(10)
-            } 
+      if (timerMode === "Rest") {
+        setTimerCompleteToast("Rest session complete! Time to Work!")
+        setTimeout(() => {
+          setTimerCompleteToast("")
+        }, 5000)
+
+        if (
+          typeof Notification !== "undefined" &&
+          Notification.permission === "granted"
+        ) {
+          new Notification("Rest done! Working Now!")
+        }
+
+        setTimerMode("Work")
+        setIsTimerRunning(false)
+        setTimer(15)
+      }
     }
+  }, [timer])
 
-    useEffect (() => { 
-        if (isTimerRunning === false) return
-        const intervalId = setInterval(() => { 
-            setTimer(prevTime => {
-                if (prevTime === 1) {
-                    clearInterval(intervalId)
-                    return 0
-                } 
-                return prevTime -1
-            })
-        }, 1000);
-        
-        return() => {
-            clearInterval(intervalId)
-        }
-    }, [isTimerRunning])
-
-    useEffect(() => {
-        if (timer === 0 && isTimerRunning) {
-            if (timerMode === "Work"){ 
-                setTimerComplete("Work session complete! Time to rest!")
-                setTimeout(() => {
-                    setTimerComplete("")
-                }, 5000)
-                if (typeof Notification !== "undefined" && Notification.permission === "granted") {
-                    new Notification("Work done! Resting Now!")
-                }
-                
-                setTimerMode("Rest")
-                setIsTimerRunning(false)
-                setTimer(10)                 
-
- 
-            }
-            if (timerMode === "Rest"){
-                setTimerComplete("Rest session complete! Time to Work!")
-                setTimeout(() => { 
-                    setTimerComplete("")
-                }, 5000)
-       
-                if (typeof Notification !== "undefined" && Notification.permission === "granted") {
-                    new Notification("Rest done! Working Now!")
-                }
-                    
-                setTimerMode("Work")
-                setIsTimerRunning(false)
-                setTimer(15)
-            }  
-        }
-}, [timer])
-   
-return (
-        <PomodoroContext.Provider value ={{
-            timer, timerMode, isTimerRunning, timerComplete,
-            timerRunningHandler, timerModeHandler
-        }}>
-            {children}
-        </PomodoroContext.Provider>
-    )
+  return (
+    <PomodoroContext.Provider
+      value={{
+        timer,
+        timerMode,
+        isTimerRunning,
+        timerCompleteToast,
+        timerRunningHandler,
+        timerModeHandler,
+      }}
+    >
+      {children}
+    </PomodoroContext.Provider>
+  )
 }
 
 export const usePomodoro = () => {
-    const ctx = useContext(PomodoroContext)
-    if(!ctx) throw new Error ("usePomodoro must be used inside PomodoroProvider")
-    return ctx;
-};
+  const ctx = useContext(PomodoroContext)
+  if (!ctx) throw new Error("usePomodoro must be used inside PomodoroProvider")
+  return ctx
+}

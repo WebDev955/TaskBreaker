@@ -1,29 +1,28 @@
 .goalNoteWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
 }
 
 .goalNoteWrapper > textarea {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    width: 90%;
-    max-width: 280px;
-    height: 140px;
-    border-radius: 6px;
-    font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  width: 90%;
+  max-width: 280px;
+  height: 140px;
+  border-radius: 6px;
+  font-size: 13px;
 }
 
-.goalNoteWrapper > button{
-    width: 80px;
-    padding: 4px;
-    font-size: 12px;
-    border-radius: 8px;
+.goalNoteWrapper > button {
+  width: 80px;
+  padding: 4px;
+  font-size: 12px;
+  border-radius: 8px;
 }
-

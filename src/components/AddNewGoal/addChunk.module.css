@@ -1,16 +1,16 @@
-.chunkWrapperDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--alabaster-grey);
-    color: black;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-size: 13px;
+.chunkWrapperDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--alabaster-grey);
+  color: black;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 13px;
 }
 
 .chunkWrapperDiv h2 {
-    font-size: 15px;
-    margin: 0 0 4px 0;
+  font-size: 15px;
+  margin: 0 0 4px 0;
 }

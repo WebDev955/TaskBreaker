@@ -9,7 +9,7 @@
   overflow-x: hidden;
 }
 
-.appTitle  {
+.appTitle {
   display: flex;
   flex-direction: column;
   border: solid black 2px;

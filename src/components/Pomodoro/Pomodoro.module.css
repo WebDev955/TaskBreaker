@@ -1,103 +1,103 @@
 .pomodoroWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 8px;
-    margin-bottom: 100px;
-    padding-bottom: 10px;
-    border-top: 3px solid black;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    background-color: var(--mint-leaf);
-    color: black;
-    box-shadow: 0px -3px 10px 0px #0000007f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 8px;
+  margin-bottom: 100px;
+  padding-bottom: 10px;
+  border-top: 3px solid black;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  background-color: var(--mint-leaf);
+  color: black;
+  box-shadow: 0px -3px 10px 0px #0000007f;
 }
 
 .pomodoroHeader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 8px;
-    border-bottom: solid black 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  border-bottom: solid black 2px;
 }
 
 .pomodoroHeader h1 {
-    margin: 0;
-    font-size: 20px;
+  margin: 0;
+  font-size: 20px;
 }
 
 .sessionSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    gap: 8px;
-    margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .modeToggle {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
 .modeButton {
-    padding: 4px 10px;
-    background-color: whitesmoke;
-    color: black;
-    border: solid black 2px;
-    border-radius: 16px;
-    font-size: 13px;
-    cursor: pointer;
+  padding: 4px 10px;
+  background-color: whitesmoke;
+  color: black;
+  border: solid black 2px;
+  border-radius: 16px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 .modeButtonActive {
-    background-color: var(--rusty-spice);
-    color: var(--alabaster-grey);
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
 }
 
 .sessionDisplay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .sessionTimer {
-    background-color: var(--alabaster-grey);
-    color: black;
-    border: 2px solid black;
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
+  background-color: var(--alabaster-grey);
+  color: black;
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .actionButton {
-    padding: 4px 10px;
-    background-color: var(--rusty-spice);
-    color: var(--alabaster-grey);
-    border: solid black 2px;
-    border-radius: 16px;
-    font-size: 13px;
-    cursor: pointer;
-    font-weight: 600;
+  padding: 4px 10px;
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
+  border: solid black 2px;
+  border-radius: 16px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .timerEndNotification {
-    width: 90%;
-    margin: 8px auto;
-    padding: 8px;
-    text-align: center;
-    border: solid black 2px;
-    border-radius: 12px;
-    background-color: var(--rusty-spice);
-    color: var(--alabaster-grey);
-    box-shadow: 0px -3px 10px 0px #0000007f;
+  width: 90%;
+  margin: 8px auto;
+  padding: 8px;
+  text-align: center;
+  border: solid black 2px;
+  border-radius: 12px;
+  background-color: var(--rusty-spice);
+  color: var(--alabaster-grey);
+  box-shadow: 0px -3px 10px 0px #0000007f;
 }

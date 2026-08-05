@@ -1,33 +1,33 @@
-.chunkWrapperDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    margin: 0 auto;
-    background-color: var(--alabaster-grey);
-    color: black;
-    padding: 8px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    border: solid black 2px;
-    font-size: 13px;
+.chunkWrapperDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  background-color: var(--alabaster-grey);
+  color: black;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  border: solid black 2px;
+  font-size: 13px;
 }
 
 .chunkWrapperDiv h2 {
-    margin: 0 0 4px 0;
-    font-size: 15px;
+  margin: 0 0 4px 0;
+  font-size: 15px;
 }
 
 .chunkWrapperDiv label {
-    font-size: 13px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .chunkWrapperDiv input {
-    padding: 3px 6px;
-    margin-top: 2px;
-    margin-bottom: 6px;
-    border: solid black 1.5px;
-    border-radius: 6px;
-    font-size: 13px;
+  padding: 3px 6px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  border: solid black 1.5px;
+  border-radius: 6px;
+  font-size: 13px;
 }

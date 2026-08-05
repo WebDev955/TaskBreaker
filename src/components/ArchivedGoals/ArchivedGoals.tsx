@@ -9,22 +9,16 @@ import styles from "../ArchivedGoals/ArchivedGoals.module.css"
 
 
 const ArchivedGoals:React.FC = () =>{
-
     const {goals, deleteGoal, unArchive} = useGoals()
-
-    const [open, setOpen] = useState(false);
-
+    const [open, setOpen] = useState(false)
     const showModal = () => {
         setOpen(true);
     };
-
     const handleOk = (goalId:string) => {
         deleteGoal(goalId)
         setOpen(false);
     };
-
     const handleCancel = () => {
-        
         setOpen(false);
     };
 

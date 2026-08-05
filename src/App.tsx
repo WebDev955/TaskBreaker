@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 //IMPORTS - Components
-import NavBar from './components/NavBar'
+import NavBar from "./components/NavBar"
 //import ListGoals from './components/GoalList/ListedGoals'
-import GoalsDisplay from './components/GoalList/GoalsDisplay'
-import Notes from './components/Notes/Notes'
-import ArchivedGoals from './components/ArchivedGoals/ArchivedGoals'
-import Pomodoro from './components/Pomodoro/Pomodoro'
-import { GoalsProvider } from './components/contexts/GoalContext'
-import { PomodoroProvider, usePomodoro} from './components/contexts/PomodoroContext'
+import GoalsDisplay from "./components/GoalList/GoalsDisplay"
+import Notes from "./components/Notes/Notes"
+import ArchivedGoals from "./components/ArchivedGoals/ArchivedGoals"
+import Pomodoro from "./components/Pomodoro/Pomodoro"
+import { GoalsProvider } from "./components/contexts/GoalContext"
+import {
+  PomodoroProvider,
+  usePomodoro,
+} from "./components/contexts/PomodoroContext"
 
-
-//IMPORTS - Styles 
+//IMPORTS - Styles
 import "./App.css"
 import style from "../src/components/Pomodoro/Pomodoro.module.css"
 import SessionComplete from "../src/assets/SessionComplete.mp3"
@@ -21,39 +23,40 @@ function App() {
     setRenderContent(value)
   }
 
- const ToastNofification = () =>{
-    const {timerComplete} = usePomodoro()
+  const ToastNofification = () => {
+    const { timerCompleteToast } = usePomodoro()
     const playSound = () => {
-      new Audio(SessionComplete).play();
+      new Audio(SessionComplete).play()
     }
-
     useEffect(() => {
-        if (timerComplete) {
-            playSound()
-        }
-    }, [timerComplete])
+      if (timerCompleteToast) {
+        playSound()
+      }
+    }, [timerCompleteToast])
     return (
-        <div>
-          {timerComplete && 
-              <div className={style.timerEndNotification}><p>{timerComplete}</p></div>
-          }
-        </div>
+      <div>
+        {timerCompleteToast && (
+          <div className={style.timerEndNotification}>
+            <p>{timerCompleteToast}</p>
+          </div>
+        )}
+      </div>
     )
   }
 
   return (
-  <>
-    <PomodoroProvider>
-      <GoalsProvider>
-        <ToastNofification/>
-          {renderContent === "displayGoals" && <GoalsDisplay/>}
-          {renderContent === "displayNotes" && <Notes/>}
-          {renderContent === "displayArchive" && <ArchivedGoals/>}
-          {renderContent === "displayPomo" && <Pomodoro/>}
-          <NavBar displayContent = {displayContent}/>
+    <>
+      <PomodoroProvider>
+        <GoalsProvider>
+          <ToastNofification />
+          {renderContent === "displayGoals" && <GoalsDisplay />}
+          {renderContent === "displayNotes" && <Notes />}
+          {renderContent === "displayArchive" && <ArchivedGoals />}
+          {renderContent === "displayPomo" && <Pomodoro />}
+          <NavBar displayContent={displayContent} />
         </GoalsProvider>
-    </PomodoroProvider>
-  </>
+      </PomodoroProvider>
+    </>
   )
 }
 
